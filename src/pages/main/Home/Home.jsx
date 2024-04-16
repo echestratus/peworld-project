@@ -29,12 +29,17 @@ const Home = () => {
 
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(0)
+  const [search, setSearch] = useState('')
+  const [searched, setSearched] = useState('')
   useEffect(() => {
     const page = currentPage + 1
     setLoading(true)
     axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
+      },
+      params: {
+        search: searched
       }
     })
       .then((res) => {
@@ -49,7 +54,14 @@ const Home = () => {
         console.log(err);
         alert(`Can't fetch data`)
       })
-  }, [currentPage])
+  }, [currentPage, searched])
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+  const handleSearchClick = () => {
+    setSearched(search)
+  }
 
   console.log('Workers Data')
   console.log(workersData)
@@ -65,7 +77,7 @@ const Home = () => {
         </div>
       </div>
       <div className='w-[1140px] h-auto my-28'>
-        <Searchbar />
+        <Searchbar value={search} handleChange={handleSearchChange} onClick={handleSearchClick} />
       </div>
       <div className='w-[1140px] h-auto mb-28'>
           {loading===true ? (<h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>) : workersData.map((value, index)=>(<CardHome key={index} workersData={value} />))  }

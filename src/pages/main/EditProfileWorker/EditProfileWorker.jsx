@@ -25,9 +25,9 @@ const EditProfileWorker = () => {
       alert('Update failed')
     })
   }
-  // useEffect(()=>{
-    
-  // }, [])
+  useEffect(()=>{
+    axios.get(`${import.meta.env.VITE_BE_URL}/`)
+  }, [])
   return (
     <div>
       EditProfileWorker

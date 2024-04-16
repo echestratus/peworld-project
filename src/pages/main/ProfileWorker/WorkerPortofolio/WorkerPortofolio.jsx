@@ -32,7 +32,7 @@ const WorkerPortofolio = () => {
                 portofolio.map((value, index) => (
                     <div key={index} className='w-[219px] h-auto flex flex-col'>
                         {value.image === "" ? (<img src={image} alt="image" className='w-[219px] h-[148px] object-cover rounded-[4px]' />) : (<img src={value.image} alt="image" className='w-[219px] h-[148px] object-cover rounded-[4px]' />) }
-                        <p className='text-center text-[14px] font-normal text-[#1F2A36]'>{value.application}</p>
+                        <p className='text-center text-[14px] font-normal text-[#1F2A36]'>{value.application_name}</p>
                     </div>
                 ))
             }
