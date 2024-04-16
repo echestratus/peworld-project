@@ -29,31 +29,57 @@ const Home = () => {
 
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(0)
+  const [currentPageSearch, setCurrentPageSearch] = useState(0)
+  const [isSearching, setIsSearching] = useState(false)
   const [search, setSearch] = useState('')
   const [searched, setSearched] = useState('')
   useEffect(() => {
-    const page = currentPage + 1
+    let page = currentPage + 1
     setLoading(true)
-    axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      },
-      params: {
-        search: searched
-      }
-    })
-      .then((res) => {
-        console.log('show res')
-        console.log(res)
-        setWorkersData(res.data.data)
-        setPaginationData(res.data.pagination)
-        setLoading(false)
+    if(searched){
+      setIsSearching(true)
+      page = currentPageSearch + 1
+      axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        params: {
+          search: searched
+        }
       })
-      .catch((err) => {
-        setLoading(false)
-        console.log(err);
-        alert(`Can't fetch data`)
+        .then((res) => {
+          console.log('show res')
+          console.log(res)
+          setWorkersData(res.data.data)
+          setPaginationData(res.data.pagination)
+          setLoading(false)
+        })
+        .catch((err) => {
+          setLoading(false)
+          console.log(err);
+          alert(`Can't fetch data`)
+        })
+    } else {
+      setIsSearching(false)
+      axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
       })
+        .then((res) => {
+          console.log('show res')
+          console.log(res)
+          setWorkersData(res.data.data)
+          setPaginationData(res.data.pagination)
+          setLoading(false)
+        })
+        .catch((err) => {
+          setLoading(false)
+          console.log(err);
+          alert(`Can't fetch data`)
+        })
+    }
+    
   }, [currentPage, searched])
 
   const handleSearchChange = (e) => {
@@ -84,7 +110,12 @@ const Home = () => {
       </div>
       <div className='w-[1140px] h-auto mb-20'>
         {/* {loading===false && (<PaginationButtons pageCount={paginationData.totalPage} />)} */}
-        <PaginationButtons pageCount={paginationData.totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        {isSearching ? (
+          <PaginationButtons pageCount={paginationData.totalPage} currentPage={currentPage} setCurrentPage={setCurrentPageSearch} />
+        ) : (
+          <PaginationButtons pageCount={paginationData.totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        )}
+        
         
       </div>
     </div>

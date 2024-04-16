@@ -26,7 +26,7 @@ const WorkerExperience = () => {
             })
     }, [])
     return (
-        <div className='w-[693px] h-auto flex flex-col'>
+        <div className='w-[693px] h-auto flex flex-col mb-16'>
             {loading === true ? (<h1 className='font-bold text-5xl text-center'>LOADING....</h1>) :
                 experience.map((value, index) => (
                     <div key={index} className='w-full h-auto flex justify-start'>

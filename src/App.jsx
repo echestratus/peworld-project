@@ -30,7 +30,7 @@ const App = () => {
             <Route path='experience/:id' element={<MyExperience />} />
           </Route>
           <Route path='editprofilecompany' element={<EditProfileCompany />} />
-          <Route path='myprofile/editprofileworker' element={<EditProfileWorker />} />
+          <Route path='myprofile/:id/editprofileworker/' element={<EditProfileWorker />} />
           <Route path='home' element={<Home />} />
           <Route path='profileworker/:id' element={<ProfileWorker />} >
             <Route path='portofolio/:id' element={<WorkerPortofolio />} />

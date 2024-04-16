@@ -31,7 +31,7 @@ const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
                 }
                 containerClassName="flex justify-center items-center gap-4 list-none"
                 pageClassName="w-[58px] h-[58px] flex justify-center items-center border border-solid border-[#E2E5ED] rounded-md bg-white text-[18px] font-[700] text-[#9EA0A5] hover:bg-[#5E50A1] hover:text-white hover:cursor-pointer"
-                activeClassName={styles.activeClassPB}
+                activeClassName='bg-peworld-blue text-white'
             />
         </div>
     )

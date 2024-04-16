@@ -7,8 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        peworld: ['"Open Sans"', 'sans-serif']
+        'peworld': ['"Open Sans"', 'sans-serif']
       },
+      colors: {
+        'peworld-blue': '#5E50A1'
+      }
     },
   },
   plugins: [],

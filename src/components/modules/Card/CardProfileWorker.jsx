@@ -5,7 +5,7 @@ import SkillsList from '../../base/Button/SkillsList'
 const CardProfileWorker = ({ workersDetail, workersSkill }) => {
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     return (
-        <div className='w-[357px] h-auto flex flex-col items-center justify-center bg-white rounded-md relative'>
+        <div className='w-[357px] h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
             {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
             
             <div className='w-[297px] h-auto'>
@@ -30,18 +30,6 @@ const CardProfileWorker = ({ workersDetail, workersSkill }) => {
             <div className='w-[297px] h-auto mt-10 mb-20'>
                 <div className='flex items-center justify-start gap-5 mr-auto'>
                     <img src="/src/assets/Main/mail-logo.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/instagram.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/github.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/gitlab.svg" alt="map-pin" className='w-[24px] h-[24px]' />
                     <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
                 </div>
             </div>

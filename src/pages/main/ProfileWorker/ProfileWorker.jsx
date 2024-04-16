@@ -37,11 +37,13 @@ const ProfileWorker = () => {
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute'></div>
       {loading === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
-        <div className='container w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
-          <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} />
-          <div className='container w-[753px] h-auto flex flex-col items-center rounded-md'>
-            <div className='container w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white'>
-              <nav className='container w-full h-auto relative mt-10 mb-5'>
+        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
+          <div className='container w-[357px] h-auto rounded-md'>
+              <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} />
+          </div>
+          <div className='w-[753px] h-auto flex flex-col items-center rounded-md'>
+            <div className='w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white'>
+              <nav className='w-full h-auto relative mt-10 mb-5'>
                 <ul className='list-none flex justify-start items-center gap-5 relative'>
                   <li><NavLink to={`/main/profileworker/${id}/portofolio/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>
                   <li><NavLink to={`/main/profileworker/${id}/experience/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Experience</NavLink></li>

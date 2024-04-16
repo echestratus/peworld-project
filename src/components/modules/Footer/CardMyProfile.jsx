@@ -3,7 +3,7 @@ import ButtonMain from '../../base/Button/ButtonMain'
 import SkillsList from '../../base/Button/SkillsList'
 import { useNavigate } from 'react-router-dom'
 
-const CardMyProfile = ({ workersDetail, workersSkill }) => {
+const CardMyProfile = ({ workersDetail, workersSkill, onClick}) => {
     const navigate = useNavigate()
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     return (
@@ -21,7 +21,7 @@ const CardMyProfile = ({ workersDetail, workersSkill }) => {
                 <p className='text[14px] font-normal text-[#9EA0A5] leading-7'>{description}</p>
             </div>
             <div className='w-[297px] h-[50px]'>
-                <ButtonMain onClick={()=>navigate(`/main/myprofile/editprofileworker`)}>Edit</ButtonMain>
+                <ButtonMain onClick={onClick}>Edit</ButtonMain>
             </div>
             <div className='w-[297px] h-auto mt-10'><p className='text-[22px] font-semibold text-[#1F2A36]'>Skill</p></div>
             <div className='w-[297px] h-auto flex flex-wrap gap-2 justify-start'>
@@ -32,18 +32,6 @@ const CardMyProfile = ({ workersDetail, workersSkill }) => {
             <div className='w-[297px] h-auto mt-10 mb-20'>
                 <div className='flex items-center justify-start gap-5 mr-auto'>
                     <img src="/src/assets/Main/mail-logo.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/instagram.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/github.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/gitlab.svg" alt="map-pin" className='w-[24px] h-[24px]' />
                     <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
                 </div>
             </div>
