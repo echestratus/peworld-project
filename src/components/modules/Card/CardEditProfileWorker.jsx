@@ -26,26 +26,21 @@ const CardEditProfileWorker = ({ workersDetail, workersSkill, onClick, handleCha
                     <p className='text-[14px] font-normal text-[#9EA0A5]'>{workplace}</p>
                     <p className='text[14px] font-normal text-[#9EA0A5] leading-7'>{description}</p>
                 </div>
-                <div className='w-[357px] h-[50px] mt-5'>
-                    <ButtonMain onClick={onClick}>Submit</ButtonMain>
-                </div>
-                <div className='w-[357px] h-[50px] mt-5'>
-                    <ButtonBgWhite>Cancel</ButtonBgWhite>
-                </div>
-                <div className='w-[297px] h-auto mt-10'><p className='text-[22px] font-semibold text-[#1F2A36]'>Skill</p></div>
-                <div className='w-[297px] h-auto flex flex-wrap gap-2 justify-start'>
-                    {workersSkill.map((value, index) => (
-                        <SkillsList key={index}>{value.skill_name}</SkillsList>
-                    ))}
-                </div>
-                <div className='w-[297px] h-auto mt-10 mb-20'>
+                <div className='w-[297px] h-auto mt-10 mb-10'>
                     <div className='flex items-center justify-start gap-5 mr-auto'>
                         <img src="/src/assets/Main/mail-logo.svg" alt="map-pin" className='w-[24px] h-[24px]' />
                         <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
                     </div>
                 </div>
-
             </div>
+            <div className='py-10'>
+                    <div className='w-[357px] h-[50px] mt-5'>
+                        <ButtonMain onClick={onClick}>Submit</ButtonMain>
+                    </div>
+                    <div className='w-[357px] h-[50px] mt-5'>
+                        <ButtonBgWhite>Cancel</ButtonBgWhite>
+                    </div>
+                </div>
         </div>
 
     )

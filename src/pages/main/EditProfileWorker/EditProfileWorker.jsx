@@ -8,6 +8,7 @@ import CardEditProfileWorker from '../../../components/modules/Card/CardEditProf
 import TextArea from '../../../components/base/Input/TextArea'
 import ButtonAuth from '../../../components/base/Button/ButtonAuth'
 import ButtonYellowBGWhite from '../../../components/base/Button/ButtonYellowBGWhite'
+import SkillsList from '../../../components/base/Button/SkillsList'
 
 const EditProfileWorker = () => {
   const { id } = useParams()
@@ -115,19 +116,19 @@ const EditProfileWorker = () => {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
     })
-    .then((res)=>{
-        const {file_url} = res.data.data
+      .then((res) => {
+        const { file_url } = res.data.data
         console.log(file_url);
         setPortofolio({
           ...portofolio,
           image: file_url
         })
 
-    })
-    .catch((err)=>{
-      console.log(err.response);
-      alert(`can't upload image`)
-    })
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert(`can't upload image`)
+      })
   }
 
   const handleChangeUploadImage = (e) => {
@@ -234,20 +235,38 @@ const EditProfileWorker = () => {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }
     })
+      .then((res) => {
+        console.log(res);
+        setPortofolio({
+          application_name: "",
+          link_repository: "",
+          application: "",
+          image: ""
+        })
+        alert('Portofolio added')
+        getMyData()
+      })
+      .catch((err) => {
+        console.log(err.response);
+        alert('Adding portofolio failed')
+      })
+  }
+  const handleDeleteSkill = (e) => {
+    const skillId = e.target.id
+    console.log(skillId);
+    axios.delete(`${import.meta.env.VITE_BE_URL}/skills/${skillId}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
     .then((res)=>{
       console.log(res);
-      setPortofolio({
-        application_name: "",
-        link_repository: "",
-        application: "",
-        image: ""
-      })
-      alert('Portofolio added')
+      alert('Skill deleted')
       getMyData()
     })
     .catch((err)=>{
-      console.log(err.response);
-      alert('Adding portofolio failed')
+      console.log(err);
+      alert('skill is not deleted')
     })
   }
   return (
@@ -280,9 +299,19 @@ const EditProfileWorker = () => {
               <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4]'>
                 <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Skill</p>
               </nav>
-              <div className='container w-[693px] h-auto flex justify-between items-center gap-10 mb-16'>
-                <div className='w-[583px] h-[50px]'><Input type='text' name='skill_name' value={formProfile.skill_name} onChange={handleChangeProfile} placeholder="Java" /></div>
-                <div className='w-[80px] h-[50px]'><ButtonAuth onClick={handleSubmitSkill}>Simpan</ButtonAuth></div>
+              <div className='container w-[693px] h-auto flex flex-col items-center'>
+                <div className='container w-full h-auto flex justify-between items-center gap-10 mb-10'>
+                  <div className='w-[583px] h-[50px]'><Input type='text' name='skill_name' value={formProfile.skill_name} onChange={handleChangeProfile} placeholder="Java" /></div>
+                  <div className='w-[80px] h-[50px]'><ButtonAuth onClick={handleSubmitSkill}>Simpan</ButtonAuth></div>
+                </div>
+                <div className='w-full h-auto flex flex-wrap gap-2 justify-start mb-10'>
+                  {mySkill.map((value, index) => (
+                    <label key={index} className='px-4 py-1 w-auto h-[28px] flex items-center gap-1 bg-[#FBB017] border border-solid border-[#FBB017] rounded-[4px] text-white text-[12px]'>
+                        <SkillsList key={index}>{value.skill_name}</SkillsList>
+                        <span key={index} id={value.id} onClick={handleDeleteSkill} className='w-[16px] h-[16px] text-[16px] hover:cursor-pointer'>X</span>
+                    </label>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -323,12 +352,12 @@ const EditProfileWorker = () => {
                   </div>
                 </div>
                 <div className='w-full h-[auto]'>
-                <label className='mb-5 font-normal text-xs text-[#9EA0A5]'>Upload image</label>
+                  <label className='mb-5 font-normal text-xs text-[#9EA0A5]'>Upload image</label>
                   <label className='w-[693px] h-[348px]'>
                     {portofolio.image ? (
                       <img src={portofolio.image} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer object-cover' />
                     ) : (
-                    <img src="/src/assets/Main/upload-img.svg" alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer' />
+                      <img src="/src/assets/Main/upload-img.svg" alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer' />
                     )}
                     <input type='file' accept='image/*' className='hidden' onChange={handleChangeUploadImagePortofolio} />
                   </label>
