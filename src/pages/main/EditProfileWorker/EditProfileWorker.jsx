@@ -285,12 +285,12 @@ const EditProfileWorker = () => {
                 <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Personal information</p>
               </nav>
               <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16'>
-                <Input type='text' name='name' label="Full name" value={formProfile.name} onChange={handleChangeProfile} placeholder="Input full name" />
-                <Input type='text' name='job_desk' label="Job desk" value={formProfile.job_desk} onChange={handleChangeProfile} placeholder="Input job desk" />
-                <Input type='text' name='domicile' label="Domicile" value={formProfile.domicile} onChange={handleChangeProfile} placeholder="Input domicile" />
-                <Input type='text' name='workplace' label="Workplace" value={formProfile.workplace} onChange={handleChangeProfile} placeholder="Input workplace" />
+                <Input type='text' name='name' label="Full name" value={formProfile?.name} onChange={handleChangeProfile} placeholder="Input full name" />
+                <Input type='text' name='job_desk' label="Job desk" value={formProfile?.job_desk} onChange={handleChangeProfile} placeholder="Input job desk" />
+                <Input type='text' name='domicile' label="Domicile" value={formProfile?.domicile} onChange={handleChangeProfile} placeholder="Input domicile" />
+                <Input type='text' name='workplace' label="Workplace" value={formProfile?.workplace} onChange={handleChangeProfile} placeholder="Input workplace" />
                 <div className='w-[693px] h-[144px]'>
-                  <TextArea type='text' name='description' label="Brief Description" value={formProfile.description} onChange={handleChangeProfile} placeholder="Input brief description" />
+                  <TextArea type='text' name='description' label="Brief Description" value={formProfile?.description} onChange={handleChangeProfile} placeholder="Input brief description" />
                 </div>
               </div>
             </div>
@@ -307,8 +307,8 @@ const EditProfileWorker = () => {
                 <div className='w-full h-auto flex flex-wrap gap-2 justify-start mb-10'>
                   {mySkill.map((value, index) => (
                     <label key={index} className='px-4 py-1 w-auto h-[28px] flex items-center gap-1 bg-[#FBB017] border border-solid border-[#FBB017] rounded-[4px] text-white text-[12px]'>
-                        <SkillsList key={index}>{value.skill_name}</SkillsList>
-                        <span key={index} id={value.id} onClick={handleDeleteSkill} className='w-[16px] h-[16px] text-[16px] hover:cursor-pointer'>X</span>
+                        <SkillsList>{value.skill_name}</SkillsList>
+                        <span id={value.id} onClick={handleDeleteSkill} className='w-[16px] h-[16px] text-[16px] hover:cursor-pointer'>X</span>
                     </label>
                   ))}
                 </div>

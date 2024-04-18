@@ -2,15 +2,20 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import NavbarLandingPage from '../../components/modules/Navbar/NavbarLandingPage'
 import Footer from '../../components/modules/Footer/Footer'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styles from './LandingPage.module.css'
 
 const LandingPage = () => {
   const [myDetail, setMyDetail] = useState({})
   const [role, setRole] = useState({})
   const [loading, setLoading] = useState(true)
+  const [token, setToken] = useState({
+    token: localStorage.getItem('token'),
+    refreshToken: localStorage.getItem('refreshToken')
+  })
   const navigate = useNavigate()
   useEffect(() => {
+    setLoading(true)
     const urls = [
       `${import.meta.env.VITE_BE_URL}/workers/profile`,
       `${import.meta.env.VITE_BE_URL}/auth/check-role`
@@ -31,9 +36,28 @@ const LandingPage = () => {
         setLoading(false)
         console.log(err.response);
       })
-  }, [])
+  }, [token])
   const handleClickProfile = () =>{
     navigate(`/main/myprofile/${myDetail.id}/portofolio/${myDetail.id}`)
+  }
+  const handleClickLogout = () =>{
+      // axios.get(`${import.meta.env.VITE_BE_URL}/auth/logout`, {
+      //   headers: {
+      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
+      //   }
+      // })
+      // .then((res)=>{
+      //   console.log(res);
+      // })
+      // .then((err)=>{
+      //   console.log(err.response);
+      // })
+      localStorage.removeItem('token')
+      localStorage.removeItem('refreshToken')
+      setToken({})
+      setRole({})
+      alert('Logout succeed')
+      navigate('/')
   }
   return (
     <div className='font-peworld'>
@@ -41,7 +65,7 @@ const LandingPage = () => {
         <h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>
       ) : (
         <>
-          <NavbarLandingPage role={role.role} handleClick={handleClickProfile} />
+          <NavbarLandingPage role={role.role} handleClickProfile={handleClickProfile} handleClickLogout={handleClickLogout} />
           <div className={styles.body}>
             <main className={styles.main}>
               <div className={styles.desc1}>
