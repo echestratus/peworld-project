@@ -2,12 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import NavbarLandingPage from '../../components/modules/Navbar/NavbarLandingPage'
 import Footer from '../../components/modules/Footer/Footer'
-import { Link, useNavigate } from 'react-router-dom'
+import { Await, Link, useNavigate } from 'react-router-dom'
 import styles from './LandingPage.module.css'
 
 const LandingPage = () => {
   const [myDetail, setMyDetail] = useState({})
-  const [role, setRole] = useState({})
+  const [role, setRole] = useState('')
   const [loading, setLoading] = useState(true)
   const [token, setToken] = useState({
     token: localStorage.getItem('token'),
@@ -16,48 +16,95 @@ const LandingPage = () => {
   const navigate = useNavigate()
   useEffect(() => {
     setLoading(true)
-    const urls = [
-      `${import.meta.env.VITE_BE_URL}/workers/profile`,
-      `${import.meta.env.VITE_BE_URL}/auth/check-role`
-    ]
-    const requests = urls.map((url) => axios.get(url, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }))
-    Promise.all(requests)
-      .then(axios.spread((...res) => {
-        setLoading(false)
-        console.log('Show res');
-        console.log(res);
-        console.log('Show res.data.data');
-        console.log(res[0].data.data);
-        setMyDetail(res[0].data.data)
-        console.log(res[1].data.data.data);
-        setRole(res[1].data.data.data)
-      }))
+    axios.get(`${import.meta.env.VITE_BE_URL}/auth/check-role`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then((res) => {
+        console.log(res.data.data.data.role);
+        localStorage.setItem('role',res.data.data.data.role)
+        setRole(res.data.data.data.role)
+        if (res.data.data.data.role === 'worker') {
+          getProfileWorker()
+        } else if (res.data.data.data.role === 'recruiter') {
+          getProfileRecruiter()
+        } else {
+          throw new Error('You are not logged in').message
+        }
+      })
       .catch((err) => {
         setLoading(false)
         console.log(err.response);
       })
   }, [token])
-  const handleClickProfile = () =>{
-    navigate(`/main/myprofile/${myDetail.id}/portofolio/${myDetail.id}`)
+  const getProfileWorker = () => {
+    axios.get(`${import.meta.env.VITE_BE_URL}/workers/profile`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then((res) => {
+        setLoading(false)
+        console.log('Show res');
+        console.log(res);
+        console.log('Show res.data.data');
+        console.log(res.data.data);
+        setMyDetail(res.data.data)
+      })
+      .catch((err) => {
+        setLoading(false)
+        console.log(err.response);
+      })
   }
-  const handleClickLogout = () =>{
-      // axios.get(`${import.meta.env.VITE_BE_URL}/auth/logout`, {
-      //   headers: {
-      //     'Authorization': `Bearer ${localStorage.getItem('token')}`
-      //   }
-      // })
-      // .then((res)=>{
-      //   console.log(res);
-      // })
-      // .then((err)=>{
-      //   console.log(err.response);
-      // })
-      localStorage.removeItem('token')
-      localStorage.removeItem('refreshToken')
-      setToken({})
-      setRole({})
-      alert('Logout succeed')
-      navigate('/')
+  const getProfileRecruiter = () => {
+    axios.get(`${import.meta.env.VITE_BE_URL}/recruiters/profile`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+      .then((res) => {
+        setLoading(false)
+        console.log('Show res');
+        console.log(res);
+        console.log('Show res.data.data');
+        console.log(res.data.data);
+        setMyDetail(res.data.data)
+      })
+      .catch((err) => {
+        setLoading(false)
+        console.log(err.response);
+      })
+  }
+  const handleClickProfile = () => {
+    if(role === 'worker'){
+      navigate(`/main/myprofile/${myDetail.id}/portofolio/${myDetail.id}`)
+    } else if(role === 'recruiter'){
+      navigate(`/main/recruiterprofile`)
+    } else{
+      navigate(`/`)
+    }
+    
+  }
+  const handleClickLogout = () => {
+    // axios.get(`${import.meta.env.VITE_BE_URL}/auth/logout`, {
+    //   headers: {
+    //     'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //   }
+    // })
+    // .then((res)=>{
+    //   console.log(res);
+    // })
+    // .then((err)=>{
+    //   console.log(err.response);
+    // })
+    localStorage.removeItem('token')
+    localStorage.removeItem('refreshToken')
+    localStorage.removeItem('role')
+    setToken({})
+    setRole({})
+    alert('Logout succeed')
+    navigate('/')
   }
   return (
     <div className='font-peworld'>
@@ -65,7 +112,7 @@ const LandingPage = () => {
         <h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>
       ) : (
         <>
-          <NavbarLandingPage role={role.role} handleClickProfile={handleClickProfile} handleClickLogout={handleClickLogout} />
+          <NavbarLandingPage role={role} handleClickProfile={handleClickProfile} handleClickLogout={handleClickLogout} />
           <div className={styles.body}>
             <main className={styles.main}>
               <div className={styles.desc1}>

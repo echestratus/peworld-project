@@ -5,7 +5,7 @@ import Footer from '../../components/modules/Footer/Footer'
 
 const Main = () => {
   return (
-    <div className='flex flex-col items-center font-peworld w-full h-auto'>
+    <div className='flex flex-col items-center font-peworld w-full h-auto bg[#F6F7F8]'>
         <NavbarMain />
         <Outlet />
         <Footer />

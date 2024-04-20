@@ -1,9 +1,8 @@
 import React from 'react'
 import ButtonMain from '../../base/Button/ButtonMain'
-import SkillsList from '../../base/Button/SkillsList'
 import ButtonBgWhite from '../../base/Button/ButtonBgWhite'
 
-const CardEditProfileWorker = ({ workersDetail, workersSkill, onClick, handleChangeUploadImage }) => {
+const CardEditProfileWorker = ({ workersDetail, handleSubmitProfile, handleClickCancel, handleChangeUploadImage }) => {
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     return (
         <div className='w-[357px] h-auto flex flex-col items-center justify-start relative'>
@@ -35,10 +34,10 @@ const CardEditProfileWorker = ({ workersDetail, workersSkill, onClick, handleCha
             </div>
             <div className='py-10'>
                     <div className='w-[357px] h-[50px] mt-5'>
-                        <ButtonMain onClick={onClick}>Submit</ButtonMain>
+                        <ButtonMain onClick={handleSubmitProfile}>Submit</ButtonMain>
                     </div>
                     <div className='w-[357px] h-[50px] mt-5'>
-                        <ButtonBgWhite>Cancel</ButtonBgWhite>
+                        <ButtonBgWhite onClick={handleClickCancel}>Cancel</ButtonBgWhite>
                     </div>
                 </div>
         </div>

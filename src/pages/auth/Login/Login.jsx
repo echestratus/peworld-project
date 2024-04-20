@@ -43,7 +43,7 @@ const Login = () => {
         </div>
         <p className='my-8 text-right font-normal text-base text-[#1F2A36]'>Forgot password?</p>
         <ButtonAuth onClick={handleSubmit}>Login</ButtonAuth>
-        <p className='mt-8 text-center font-normal text-base'>Don't have an account yet? <Link to='/auth/register' className='text-[#FBB017] no-underline'>Register here</Link></p>
+        <p className='mt-8 text-center font-normal text-base'>Don't have an account yet? <Link to='/auth/register/registerworker' className='text-[#FBB017] no-underline'>Register here</Link></p>
         
     </div>
   )

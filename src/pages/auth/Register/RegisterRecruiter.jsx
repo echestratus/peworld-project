@@ -24,7 +24,7 @@ const RegisterRecruiter = () => {
   const handleSubmit = () => {
     if (form.password !== form.confirmPass) {
       alert(`Confirm password should be the same as Password you have inputted`)
-      navigate(`/auth/register`)
+      navigate(`/auth/register/registerrecruiter`)
     } else {
       axios.post(`${import.meta.env.VITE_BE_URL}/recruiters/register`, {
         email: form.email,
@@ -33,7 +33,6 @@ const RegisterRecruiter = () => {
         company: form.company,
         position: form.position,
         phone: form.phone,
-        confirmPass: form.confirmPass
       })
         .then((res) => {
           console.log(res);

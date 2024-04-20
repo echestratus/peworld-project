@@ -177,6 +177,9 @@ const EditProfileWorker = () => {
         alert('Update failed')
       })
   }
+  const handleClickCancel = () => {
+    navigate(`/main/myprofile/${myDetail.id}`)
+  }
 
   const handleSubmitSkill = () => {
     axios.post(`${import.meta.env.VITE_BE_URL}/skills`, { skill_name: formProfile.skill_name }, {
@@ -269,6 +272,7 @@ const EditProfileWorker = () => {
       alert('skill is not deleted')
     })
   }
+
   return (
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute'></div>
@@ -277,7 +281,7 @@ const EditProfileWorker = () => {
       ) : (
         <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
           <div className='container w-[357px] h-auto rounded-md'>
-            <CardEditProfileWorker workersDetail={myDetail} workersSkill={mySkill} onClick={handleSubmitProfile} handleChangeUploadImage={handleChangeUploadImage} />
+            <CardEditProfileWorker workersDetail={myDetail} workersSkill={mySkill} handleSubmitProfile={handleSubmitProfile} handleClickCancel={handleClickCancel} handleChangeUploadImage={handleChangeUploadImage} />
           </div>
           <div className='container w-[753px] h-auto flex flex-col items-center rounded-md'>
             <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white'>

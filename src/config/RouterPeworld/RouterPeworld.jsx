@@ -16,6 +16,8 @@ import WorkerExperience from '../../pages/main/ProfileWorker/WorkerExperience/Wo
 import MyProfile from '../../pages/main/MyProfile/MyProfile'
 import MyPortofolio from '../../pages/main/MyProfile/MyPortofolio/MyPortofolio'
 import MyExperience from '../../pages/main/MyProfile/MyExperience/MyExperience'
+import RecruiterProfile from '../../pages/main/RecruiterProfile/RecruiterProfile'
+import ProtectedRoute from '../../components/modules/ProtectedRoute/ProtectedRoute'
 
 
 
@@ -31,18 +33,19 @@ const RouterPeworld = () => {
                     </Route>
                 </Route>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/main' element={<Main />}>
+                <Route path='/main' element={<ProtectedRoute><Main /></ProtectedRoute>}>
                     <Route path='myprofile/:id' element={<MyProfile />}>
                         <Route path='portofolio/:id' element={<MyPortofolio />} />
                         <Route path='experience/:id' element={<MyExperience />} />
                     </Route>
-                    <Route path='editprofilecompany' element={<EditProfileCompany />} />
                     <Route path='myprofile/:id/editprofileworker/' element={<EditProfileWorker />} />
                     <Route path='home' element={<Home />} />
                     <Route path='profileworker/:id' element={<ProfileWorker />} >
                         <Route path='portofolio/:id' element={<WorkerPortofolio />} />
                         <Route path='experience/:id' element={<WorkerExperience />} />
                     </Route>
+                    <Route path='recruiterprofile' element={<RecruiterProfile />} />
+                    <Route path='recruiterprofile/editprofilecompany' element={<EditProfileCompany />} />
                 </Route>
             </Routes>
         </BrowserRouter>

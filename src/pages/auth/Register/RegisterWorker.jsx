@@ -22,7 +22,7 @@ const RegisterWorker = () => {
   const handleSubmit = () => {
     if (form.password !== form.confirmPass) {
       alert(`Confirm password should be the same as Password you have inputted`)
-      navigate(`/auth/register`)
+      navigate(`/auth/register/registerworker`)
     } else {
       axios.post(`${import.meta.env.VITE_BE_URL}/workers/register`, {
         email: form.email,
