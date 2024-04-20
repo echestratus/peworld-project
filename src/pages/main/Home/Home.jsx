@@ -33,6 +33,8 @@ const Home = () => {
   const [isSearching, setIsSearching] = useState(false)
   const [search, setSearch] = useState('')
   const [searched, setSearched] = useState('')
+  const [sort, setSort] = useState('created_at')
+  const [sortBy, setSortBy] = useState('ASC')
   useEffect(() => {
     let page = currentPage + 1
     setLoading(true)
@@ -44,7 +46,9 @@ const Home = () => {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         params: {
-          search: searched
+          search: searched,
+          sort: sort,
+          sortBy: sortBy
         }
       })
         .then((res) => {
@@ -65,6 +69,10 @@ const Home = () => {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
+        params: {
+          sort: sort,
+          sortBy: sortBy
+        }
       })
         .then((res) => {
           console.log('show res')
@@ -80,7 +88,7 @@ const Home = () => {
         })
     }
     
-  }, [currentPage, searched])
+  }, [currentPage, searched, sort, sortBy])
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value)
@@ -88,13 +96,14 @@ const Home = () => {
   const handleSearchClick = () => {
     setSearched(search)
   }
+  const handleSortChange = (e) =>{
+    setSort(e.target.value)
+  }
+  const handleSortByChange = (e) => {
+    setSortBy(e.target.value)
+  }
 
-  console.log('Workers Data')
-  console.log(workersData)
-  console.log('Pagination Data')
-  console.log(paginationData)
-  console.log('Current Page');
-  console.log(currentPage);
+
   return (
     <div className='w-full h-auto bg-[#F6F7F8] flex flex-col justify-center items-center'>
       <div className='w-full h-auto bg-[#5E50A1] flex justify-center'>
@@ -103,7 +112,7 @@ const Home = () => {
         </div>
       </div>
       <div className='w-[1140px] h-auto my-28'>
-        <Searchbar value={search} handleChange={handleSearchChange} onClick={handleSearchClick} />
+        <Searchbar value={search} handleChange={handleSearchChange} onClick={handleSearchClick} handleSortChange={handleSortChange} handleSortByChange={handleSortByChange} />
       </div>
       <div className='w-[1140px] h-auto mb-28'>
           {loading===true ? (<h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>) : workersData.map((value, index)=>(<CardHome key={index} workersData={value} />))  }

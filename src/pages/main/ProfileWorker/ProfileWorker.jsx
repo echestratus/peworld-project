@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { NavLink, Outlet, useParams } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import CardProfileWorker from '../../../components/modules/Card/CardProfileWorker'
 
 const ProfileWorker = () => {
@@ -8,6 +8,7 @@ const ProfileWorker = () => {
   const [workersDetail, setWorkersDetail] = useState({})
   const [workersSkill, setWorkersSkill] = useState([])
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
   useEffect(() => {
     setLoading(true)
     const urls = [
@@ -32,6 +33,9 @@ const ProfileWorker = () => {
         alert('Something wrong')
       })
   }, [])
+  const handleClickHire = () =>{
+    navigate(`/main/profileworker/${id}/hire`)
+  }
 
   return (
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
@@ -39,14 +43,14 @@ const ProfileWorker = () => {
       {loading === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
         <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
           <div className='container w-[357px] h-auto rounded-md'>
-              <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} />
+              <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} handleClickHire={handleClickHire} />
           </div>
           <div className='w-[753px] h-auto flex flex-col items-center rounded-md'>
             <div className='w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white'>
               <nav className='w-full h-auto relative mt-10 mb-5'>
                 <ul className='list-none flex justify-start items-center gap-5 relative'>
-                  <li><NavLink to={`/main/profileworker/${id}/portofolio/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>
-                  <li><NavLink to={`/main/profileworker/${id}/experience/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Experience</NavLink></li>
+                  <li><NavLink to={`/main/profileworker/${id}/portofolio`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>
+                  <li><NavLink to={`/main/profileworker/${id}/experience`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Experience</NavLink></li>
                 </ul>
               </nav>
               <Outlet />

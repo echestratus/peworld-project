@@ -48,8 +48,8 @@ const MyProfile = () => {
                         <div className='container w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white'>
                             <nav className='container w-full h-auto relative mt-10 mb-5'>
                                 <ul className='list-none flex justify-start items-center gap-5 relative'>
-                                    <li><NavLink to={`/main/myprofile/${id}/portofolio/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>
-                                    <li><NavLink to={`/main/myprofile/${id}/experience/${id}`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Experience</NavLink></li>
+                                    <li><NavLink to={`/main/myprofile/${id}/portofolio`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>
+                                    <li><NavLink to={`/main/myprofile/${id}/experience`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Experience</NavLink></li>
                                 </ul>
                             </nav>
                             <Outlet />

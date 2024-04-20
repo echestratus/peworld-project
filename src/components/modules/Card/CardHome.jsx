@@ -8,7 +8,7 @@ const CardHome = ({ workersData }) => {
     const { name, job_desk, domicile, skills, photo, id } = workersData
     const handleClickViewProfile = (id) => {
         alert(`Directed to profile's detail`)
-        navigate(`/main/profileworker/${id}/portofolio/${id}`)
+        navigate(`/main/profileworker/${id}/portofolio`)
     }
     return (
         <div className='w-full h-auto bg-white flex items-center mb-[2px] rounded-md py-5'>

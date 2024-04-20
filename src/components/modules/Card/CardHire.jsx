@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import ButtonMain from '../../base/Button/ButtonMain'
 import SkillsList from '../../base/Button/SkillsList'
 
-const CardProfileWorker = ({ workersDetail, workersSkill, handleClickHire }) => {
+const CardHire = ({ workersDetail, workersSkill }) => {
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     const [role, setRole] = useState(localStorage.getItem('role'))
     return (
@@ -19,28 +18,15 @@ const CardProfileWorker = ({ workersDetail, workersSkill, handleClickHire }) => 
                 <p className='text-[14px] font-normal text-[#9EA0A5]'>{workplace}</p>
                 <p className='text[14px] font-normal text-[#9EA0A5] leading-7'>{description}</p>
             </div>
-            <div>
-                {role === 'recruiter' && (
-                    <div className='w-[297px] h-[50px]'>
-                        <ButtonMain onClick={handleClickHire}>Hire</ButtonMain>
-                    </div>
-                )}
-            </div>
-            <div className='w-[297px] h-auto mt-10'><p className='text-[22px] font-semibold text-[#1F2A36]'>Skill</p></div>
-            <div className='w-[297px] h-auto flex flex-wrap gap-2 justify-start'>
+            <div className='w-[297px] h-auto'><p className='text-[22px] font-semibold text-[#1F2A36]'>Skill</p></div>
+            <div className='w-[297px] h-auto flex flex-wrap gap-2 justify-start mb-20'>
                 {workersSkill.map((value, index) => (
                     <SkillsList key={index}>{value.skill_name}</SkillsList>
                 ))}
-            </div>
-            <div className='w-[297px] h-auto mt-10 mb-20'>
-                <div className='flex items-center justify-start gap-5 mr-auto'>
-                    <img src="/src/assets/Main/mail-logo.svg" alt="map-pin" className='w-[24px] h-[24px]' />
-                    <p className='text-[14px] font-normal text-[#9EA0A5]'>{email}</p>
-                </div>
             </div>
 
         </div>
     )
 }
 
-export default CardProfileWorker
+export default CardHire

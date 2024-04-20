@@ -78,7 +78,7 @@ const LandingPage = () => {
   }
   const handleClickProfile = () => {
     if(role === 'worker'){
-      navigate(`/main/myprofile/${myDetail.id}/portofolio/${myDetail.id}`)
+      navigate(`/main/myprofile/${myDetail.id}/portofolio`)
     } else if(role === 'recruiter'){
       navigate(`/main/recruiterprofile`)
     } else{
