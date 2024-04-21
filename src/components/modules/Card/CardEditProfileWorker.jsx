@@ -5,8 +5,8 @@ import ButtonBgWhite from '../../base/Button/ButtonBgWhite'
 const CardEditProfileWorker = ({ workersDetail, handleSubmitProfile, handleClickCancel, handleChangeUploadImage }) => {
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     return (
-        <div className='w-[357px] h-auto flex flex-col items-center justify-start relative'>
-            <div className='w-[357px] h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
+        <div className='w-[357px] h-auto flex flex-col items-center justify-start relative phone:max-tablet:min-w-[320px] phone:max-tablet:max-w-[640px]'>
+            <div className='w-full h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
                 {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
                 <div className='w-full h-auto flex justify-center items-center gap-2'>
                     <label>
@@ -33,10 +33,10 @@ const CardEditProfileWorker = ({ workersDetail, handleSubmitProfile, handleClick
                 </div>
             </div>
             <div className='py-10'>
-                    <div className='w-[357px] h-[50px] mt-5'>
+                    <div className='w-[357px] h-[50px] mt-5 phone:max-tablet:min-w-[320px] phone:max-tablet:max-w-[640px]'>
                         <ButtonMain onClick={handleSubmitProfile}>Submit</ButtonMain>
                     </div>
-                    <div className='w-[357px] h-[50px] mt-5'>
+                    <div className='w-[357px] h-[50px] mt-5 phone:max-tablet:min-w-[320px] phone:max-tablet:max-w-[640px]'>
                         <ButtonBgWhite onClick={handleClickCancel}>Cancel</ButtonBgWhite>
                     </div>
                 </div>

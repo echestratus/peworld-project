@@ -39,13 +39,13 @@ const MyProfile = () => {
         navigate(`/main/myprofile/${id}/editprofileworker`)
     }
     return (
-        <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
-            <div className='w-full h-[400px] bg-[#5E50A1] absolute'></div>
+        <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
+            <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
             {loading === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
-                <div className='container w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
+                <div className='container w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
                     <CardMyProfile workersDetail={myDetail} workersSkill={mySkill} onClick={handleClickEdit}/>
-                    <div className='container w-[753px] h-auto flex flex-col items-center rounded-md'>
-                        <div className='container w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white'>
+                    <div className='container w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:mt-5'>
+                        <div className='container w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:px-2'>
                             <nav className='container w-full h-auto relative mt-10 mb-5'>
                                 <ul className='list-none flex justify-start items-center gap-5 relative'>
                                     <li><NavLink to={`/main/myprofile/${id}/portofolio`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>

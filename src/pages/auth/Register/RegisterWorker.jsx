@@ -42,7 +42,7 @@ const RegisterWorker = () => {
     }
   }
   return (
-    <div className='w-[570px] h-auto flex flex-col justify-center'>
+    <div className='w-[570px] h-auto flex flex-col justify-center phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
       <h2 className='font-semibold text-[32px] text-[#1F2A36] mb-5'>Hello, Pewpeople</h2>
       <p className='mb-10 font-normal text-lg text-[#46505C]'>Discover top-tier IT talent effortlessly on our website and elevate your projects to new heights!</p>
       <div className='flex flex-col gap-8 mb-16'>

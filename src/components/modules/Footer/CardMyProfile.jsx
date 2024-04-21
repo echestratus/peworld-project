@@ -7,7 +7,7 @@ const CardMyProfile = ({ workersDetail, workersSkill, onClick}) => {
     const navigate = useNavigate()
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
     return (
-        <div className='w-[357px] h-auto flex flex-col items-center justify-center bg-white rounded-md relative'>
+        <div className='w-[357px] h-auto flex flex-col items-center justify-center bg-white rounded-md relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
             {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
             
             <div className='w-[297px] h-auto'>

@@ -3,7 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 
 const Register = () => {
   return (
-    <div className='w-[570px] h-auto flex flex-col justify-center'>
+    <div className='w-auto h-auto flex flex-col justify-center'>
         <div className='w-full h-auto flex justify-start'>
             <nav className='container w-full h-auto relative'>
                 <ul className='list-none flex justify-start p-0 gap-5 relative'>

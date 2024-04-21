@@ -27,7 +27,7 @@ const WorkerPortofolio = () => {
             })
     }, [])
     return (
-        <div className='w-[693px] h-auto flex justify-start flex-wrap gap-3'>
+        <div className='w-[693px] h-auto flex justify-start flex-wrap gap-3 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
             {loading === true ? (<h1 className='font-bold text-5xl mx-auto'>LOADING....</h1>) :
                 portofolio.map((value, index) => (
                     <div key={index} className='w-[219px] h-auto flex flex-col'>

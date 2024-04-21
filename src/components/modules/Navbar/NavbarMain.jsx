@@ -50,13 +50,13 @@ const NavbarMain = () => {
 
     }, [])
     return (
-        <div className='bg-white w-full h-auto flex justify-center'>
-            <nav className='w-[1140px] h-auto bg-white flex justify-between items-center'>
-                <div className='container w-[127px] h-[35px]'>
+        <div className='bg-white w-full h-auto flex justify-center phone:max-tablet:max-w-[640px]'>
+            <nav className='w-[1140px] h-auto bg-white flex justify-between items-center phone:max-tablet:max-w-[640px]'>
+                <div className='container w-[127px] h-[35px] phone:max-tablet:ml-3'>
                     <img src="/src/assets/Main/peworldBlue.svg" alt="Peworld" onClick={() => navigate(`/`)} className='object-cover w-full h-full hover:cursor-pointer' />
                 </div>
                 {role === 'worker' ? (
-                    <ul className='flex items-center w-auto h-auto gap-10 list-none'>
+                    <ul className='flex items-center w-auto h-auto gap-10 list-none phone:max-tablet:gap-5 phone:max-tablet:mr-3'>
                         <li className='w-[24px] h-[24px]'>
                             <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full' />
                         </li>
@@ -75,7 +75,7 @@ const NavbarMain = () => {
 
                     </ul>
                 ) : role === 'recruiter' ? (
-                    <ul className='flex items-center w-auto h-auto gap-10 list-none'>
+                    <ul className='flex items-center w-auto h-auto gap-10 list-none phone:max-tablet:gap-5 phone:max-tablet:mr-3'>
                         <li className='w-[24px] h-[24px]'>
                             <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full' />
                         </li>

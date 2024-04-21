@@ -120,20 +120,20 @@ const EditProfileCompany = () => {
       {loading === true ? (
         <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
       ) : (
-        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
-          <div className='container w-[357px] h-auto rounded-md'>
+        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center phone:max-tablet:justify-start'>
+          <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
             <CardEditProfileCompany formProfile={formProfile} handleSubmitProfile={handleSubmitProfile} handleClickCancel={handleClickCancel} handleChangeUploadImage={handleChangeUploadImage} />
           </div>
-          <div className='container w-[753px] h-auto flex flex-col items-center rounded-md'>
-            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white'>
+          <div className='container w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
+            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px] phone:max-tablet:px-3'>
               <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4]'>
                 <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Company information</p>
               </nav>
-              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16'>
+              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
                 <Input type='text' name='company' label="Company name" value={formProfile?.company} onChange={handleChangeProfile} placeholder="Input Company name" />
                 <Input type='text' name='position' label="Field" value={formProfile?.position} onChange={handleChangeProfile} placeholder="Input company field" />
                 <Input type='text' name='city' label="City" value={formProfile?.city} onChange={handleChangeProfile} placeholder="Input city" />
-                <div className='w-[693px] h-[144px]'>
+                <div className='w-[693px] h-[144px] phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
                   <TextArea type='text' name='description' label="Brief Description" value={formProfile?.description} onChange={handleChangeProfile} placeholder="Input brief description" />
                 </div>
                 <Input type='text' name='instagram' label="Instagram" value={formProfile?.instagram} onChange={handleChangeProfile} placeholder="Input instagram id" />

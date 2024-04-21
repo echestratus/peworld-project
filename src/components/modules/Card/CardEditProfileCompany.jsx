@@ -5,8 +5,8 @@ import ButtonBgWhite from '../../base/Button/ButtonBgWhite'
 const CardEditProfileCompany = ({ formProfile, handleSubmitProfile, handleClickCancel, handleChangeUploadImage }) => {
     const { company, position, city, description, email, phone, instagram, linkedin, photo } = formProfile
     return (
-        <div className='w-[357px] h-auto flex flex-col items-center justify-start relative'>
-            <div className='w-[357px] h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
+        <div className='w-[357px] h-auto flex flex-col items-center justify-start relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
+            <div className='w-[357px] h-auto flex flex-col items-center justify-start bg-white rounded-md relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
                 {photo === null ? (<img src="https://openclipart.org/image/2400px/svg_to_png/250353/icon_user_whiteongrey.png" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
                 <div className='w-full h-auto flex justify-center items-center gap-2'>
                     <label>
@@ -34,11 +34,11 @@ const CardEditProfileCompany = ({ formProfile, handleSubmitProfile, handleClickC
                     </div>
                 </div>
             </div>
-            <div className='py-10'>
-                <div className='w-[357px] h-[50px] mt-5'>
+            <div className='w-[357px] h-auto py-10 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
+                <div className='mt-5'>
                     <ButtonMain onClick={handleSubmitProfile}>Submit</ButtonMain>
                 </div>
-                <div className='w-[357px] h-[50px] mt-5'>
+                <div className='mt-5'>
                     <ButtonBgWhite onClick={handleClickCancel}>Cancel</ButtonBgWhite>
                 </div>
             </div>
