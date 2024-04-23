@@ -2,36 +2,21 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom'
 import CardMyProfile from '../../../components/modules/Footer/CardMyProfile'
+import { useDispatch, useSelector } from 'react-redux'
+import { profileWorkerAction } from '../../../config/redux/action/profileWorkerAction'
+import { getSkillPerIdWorkerAction } from '../../../config/redux/action/getSkillPerIdWorkerAction'
 
 const MyProfile = () => {
     const {id} = useParams()
-    const [myDetail, setMyDetail] = useState({})
-    const [mySkill, setMySkill] = useState([])
-    const [loading, setLoading] = useState(true)
+    // const [myDetail, setMyDetail] = useState({})
+    const {loading, myDetail} = useSelector((state)=>state.profileWorker)
+    // const [mySkill, setMySkill] = useState([])
+    const {loading: loadingSkill, skills: mySkill} = useSelector((state)=>state.getSkillPerIdWorker)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true)
-        const urls = [
-            `${import.meta.env.VITE_BE_URL}/workers/profile`,
-            `${import.meta.env.VITE_BE_URL}/skills/${id}`
-        ]
-        const requests = urls.map((url) => axios.get(url, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }))
-        Promise.all(requests)
-            .then(axios.spread((...res) => {
-                setLoading(false)
-                console.log('Show res');
-                console.log(res);
-                console.log('Show res.data.data');
-                console.log(res[0].data.data);
-                setMyDetail(res[0].data.data)
-                console.log(res[1].data.data);
-                setMySkill(res[1].data.data)
-            }))
-            .catch((err) => {
-                setLoading(false)
-                console.log(err.response);
-                alert('Something wrong')
-            })
+        dispatch(profileWorkerAction())
+        dispatch(getSkillPerIdWorkerAction(id))
 
     }, [])
     const handleClickEdit = () => {
@@ -41,7 +26,7 @@ const MyProfile = () => {
     return (
         <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
             <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
-            {loading === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
+            {loading === true || loadingSkill === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
                 <div className='container w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
                     <CardMyProfile workersDetail={myDetail} workersSkill={mySkill} onClick={handleClickEdit}/>
                     <div className='container w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:mt-5'>

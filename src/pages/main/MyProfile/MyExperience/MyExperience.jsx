@@ -1,29 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { getExperiencePerIdWorkerAction } from '../../../../config/redux/action/getExperiencePerIdWorkerAction'
 
 const MyExperience = () => {
     const { id } = useParams()
-    const [experience, setExperience] = useState([])
-    const [loading, setLoading] = useState(true)
+    // const [experience, setExperience] = useState([])
+    const {loading, experience} = useSelector((state)=>state.getExperiencePerIdWorker)
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true)
-        axios.get(`${import.meta.env.VITE_BE_URL}/experience/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then((res) => {
-                setLoading(false)
-                console.log('Show res contain experience');
-                console.log(res);
-                setExperience(res.data.data)
-            })
-            .catch((err) => {
-                setLoading(false)
-                console.log(err.response);
-                alert('Something wrong')
-            })
+        dispatch(getExperiencePerIdWorkerAction(id))
     }, [])
     return (
         <div className='w-[693px] h-auto flex flex-col mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>

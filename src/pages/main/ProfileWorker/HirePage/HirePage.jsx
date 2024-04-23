@@ -5,83 +5,43 @@ import CardHire from '../../../../components/modules/Card/CardHire'
 import ButtonAuth from '../../../../components/base/Button/ButtonAuth'
 import Input from '../../../../components/base/Input/Input'
 import TextArea from '../../../../components/base/Input/TextArea'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPortfolioPerIdWorkerAction } from '../../../../config/redux/action/getPortfolioPerIdWorkerAction'
+import { getSkillPerIdWorkerAction } from '../../../../config/redux/action/getSkillPerIdWorkerAction'
+import { detailWorkerAction } from '../../../../config/redux/action/detailWorkerAction'
+import { addHireAction } from '../../../../config/redux/action/addHireAction'
 
 const HirePage = () => {
     const { id } = useParams()
-    const [workersDetail, setWorkersDetail] = useState({})
-    const [workersSkill, setWorkersSkill] = useState([])
-    const [loading, setLoading] = useState(true)
+    // const [workersDetail, setWorkersDetail] = useState({})
+    const {loading, workersDetail} = useSelector((state)=>state.detailWorker)
+    // const [workersSkill, setWorkersSkill] = useState([])
+    const {loading: loadingSkill, skills:workersSkill} = useSelector((state)=>state.getSkillPerIdWorker)
     const [formHire, setFormHire] = useState({
         message_purpose: "",
-        worker_id: "",
+        worker_id: id,
         name: "",
         email: "",
         phone: "",
         description: ""
     })
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true)
-        const urls = [
-            `${import.meta.env.VITE_BE_URL}/workers/${id}`,
-            `${import.meta.env.VITE_BE_URL}/skills/${id}`
-        ]
-        const requests = urls.map((url) => axios.get(url))
-        Promise.all(requests)
-            .then(axios.spread(async (...res) => {
-                setWorkersSkill(res[1].data.data)
-                setWorkersDetail(res[0].data.data)
-                setFormHire({
-                    ...formHire,
-                    worker_id: res[0].data.data.id
-                })
-                setLoading(false)
-            }))
-            .catch((err) => {
-                console.log(err.response);
-                alert('Something wrong')
-                setLoading(false)
-            })
+        dispatch(detailWorkerAction(id))
+        dispatch(getSkillPerIdWorkerAction(id))
     }, [])
     const handleChangeHire = (e) =>{
         setFormHire({
             ...formHire,
             [e.target.name]: e.target.value
         })
-        console.log(formHire.description);
     }
     const handleSubmitHire = () =>{
-        axios.post(`${import.meta.env.VITE_BE_URL}/hire`, {
-            message_purpose: formHire.message_purpose,
-            worker_id: formHire.worker_id,
-            name: formHire.name,
-            email: formHire.email,
-            phone: formHire.phone,
-            desciption: formHire.description
-        }, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-        .then((res)=>{
-            console.log(res);
-            alert('Hire Succeed \n'+`${formHire.description} ${formHire.email} ${formHire.message_purpose} ${formHire.name} ${formHire.phone} ${formHire.worker_id}`)
-            setFormHire({
-                message_purpose: "",
-                worker_id: "",
-                name: "",
-                email: "",
-                phone: "",
-                description: ""
-            })
-        })
-        .catch((err)=>{
-            console.log(err.response);
-            alert('Hire failed')
-        })
+        dispatch(addHireAction(formHire, setFormHire))
     }
     return (
         <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
-            {loading === true ? (
+            {loading === true || loadingSkill === true ? (
                 <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
             ) : (
                 <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>

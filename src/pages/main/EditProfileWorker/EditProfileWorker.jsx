@@ -9,15 +9,31 @@ import TextArea from '../../../components/base/Input/TextArea'
 import ButtonAuth from '../../../components/base/Button/ButtonAuth'
 import ButtonYellowBGWhite from '../../../components/base/Button/ButtonYellowBGWhite'
 import SkillsList from '../../../components/base/Button/SkillsList'
+import { useDispatch, useSelector } from 'react-redux'
+import { profileWorkerAction } from '../../../config/redux/action/profileWorkerAction'
+import { getSkillPerIdWorkerAction } from '../../../config/redux/action/getSkillPerIdWorkerAction'
+import { getPortfolioPerIdWorkerAction } from '../../../config/redux/action/getPortfolioPerIdWorkerAction'
+import { getExperiencePerIdWorkerAction } from '../../../config/redux/action/getExperiencePerIdWorkerAction'
+import { uploadImagePortfolioAction } from '../../../config/redux/action/uploadImagePortfolioAction'
+import { updatePhotoProfileAction } from '../../../config/redux/action/updatePhotoProfileAction'
+import { updateProfileWorkersAction } from '../../../config/redux/action/updateProfileWorkersAction'
+import { addSkillAction } from '../../../config/redux/action/addSkillAction'
+import { addExperienceAction } from '../../../config/redux/action/addExperienceAction'
+import { addPortfolioAction } from '../../../config/redux/action/addPortfolioAction'
+import { deleteSkillAction } from '../../../config/redux/action/deleteSkillAction'
 
 const EditProfileWorker = () => {
   const { id } = useParams()
-  const [myDetail, setMyDetail] = useState({})
-  const [mySkill, setMySkill] = useState([])
-  const [myPortofolio, setMyPortofolio] = useState([])
-  const [myExperience, setMyExperience] = useState([])
+  // const [myDetail, setMyDetail] = useState({})
+  const {loading, myDetail} = useSelector((state)=>state.profileWorker)
+  const {loading: loadingGetSkills, skills: mySkill} = useSelector((state)=>state.getSkillPerIdWorker)
+  const {loading: loadingGetPortfolio, portofolio: myPortofolio} = useSelector((state)=>state.getPortfolioPerIdWorker)
+  const {loading: loadingGetExperience, experience: myExperience } = useSelector((state)=>state.getExperiencePerIdWorker)
+  // const [mySkill, setMySkill] = useState([])
+  // const [myPortofolio, setMyPortofolio] = useState([])
+  // const [myExperience, setMyExperience] = useState([])
   const [workMonthYear, setWorkMonthYear] = useState("")
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
   const [portofolio, setPortofolio] = useState({
     application_name: "",
@@ -25,7 +41,6 @@ const EditProfileWorker = () => {
     application: "",
     image: ""
   })
-
   const [formProfile, setFormProfile] = useState({
     name: "",
     job_desk: "",
@@ -39,53 +54,17 @@ const EditProfileWorker = () => {
     work_year: "",
     work_description: ""
   })
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    setLoading(true)
+    // setLoading(true)
     getMyData()
   }, [])
   const getMyData = () => {
-    const urls = [
-      `${import.meta.env.VITE_BE_URL}/workers/profile`,
-      `${import.meta.env.VITE_BE_URL}/skills/${id}`,
-      `${import.meta.env.VITE_BE_URL}/portfolio/${id}`,
-      `${import.meta.env.VITE_BE_URL}/experience/${id}`
-    ]
-    const requests = urls.map((url) => axios.get(url, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }))
-    Promise.all(requests)
-      .then(axios.spread((...res) => {
-
-        console.log('Show res');
-        console.log(res);
-        console.log('Show res[0] profile');
-        console.log(res[0].data.data);
-        setMyDetail(res[0].data.data)
-        console.log('Show res[1] skills');
-        console.log(res[1].data.data);
-        setMySkill(res[1].data.data)
-        console.log('Show res[2] portofolio');
-        console.log(res[2].data.data);
-        setMyPortofolio(res[2].data.data)
-        console.log('Show res[3] experience');
-        console.log(res[3].data.data);
-        setMyExperience(res[3].data.data)
-
-        setFormProfile({
-          ...formProfile,
-          name: res[0].data.data.name,
-          job_desk: res[0].data.data.job_desk,
-          domicile: res[0].data.data.domicile,
-          workplace: res[0].data.data.workplace,
-          description: res[0].data.data.description
-        })
-
-        setLoading(false)
-      }))
-      .catch((err) => {
-        setLoading(false)
-        console.log(err.response);
-        alert('Something wrong')
-      })
+    dispatch(profileWorkerAction(setFormProfile, formProfile))
+    dispatch(getSkillPerIdWorkerAction(id))
+    dispatch(getPortfolioPerIdWorkerAction(id))
+    dispatch(getExperiencePerIdWorkerAction(id))
   }
   const handleChangeProfile = (e) => {
     setFormProfile({
@@ -109,174 +88,44 @@ const EditProfileWorker = () => {
   const handleChangeUploadImagePortofolio = (e) => {
     console.log(e.target.files[0]);
     const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('file', file)
-    axios.post(`${import.meta.env.VITE_BE_URL}/upload`, formData, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        const { file_url } = res.data.data
-        console.log(file_url);
-        setPortofolio({
-          ...portofolio,
-          image: file_url
-        })
-
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert(`can't upload image`)
-      })
+    dispatch(uploadImagePortfolioAction(portofolio, setPortofolio, file))
   }
 
   const handleChangeUploadImage = (e) => {
     console.log(e.target.files[0]);
     const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('photo', file)
-    axios.put(`${import.meta.env.VITE_BE_URL}/workers/profile/photo`, formData, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        const { photo } = res.data.data
-        console.log(photo);
-        alert('Update photo succeed')
-        getMyData()
-
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert(`can't upload image`)
-      })
+    dispatch(updatePhotoProfileAction(file, getMyData))
   }
 
   const handleSubmitProfile = () => {
-    axios.put(`${import.meta.env.VITE_BE_URL}/workers/profile`, {
-      name: formProfile.name,
-      job_desk: formProfile.job_desk,
-      domicile: formProfile.domicile,
-      workplace: formProfile.workplace,
-      description: formProfile.description
-    }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        console.log('show res PUT');
-        console.log(res);
-        alert('Update succeed')
-        getMyData()
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert('Update failed')
-      })
+    dispatch(updateProfileWorkersAction(formProfile, getMyData))
   }
   const handleClickCancel = () => {
-    navigate(`/main/myprofile/${myDetail.id}`)
+    navigate(`/main/myprofile/${myDetail.id}/portofolio`)
   }
 
   const handleSubmitSkill = () => {
-    axios.post(`${import.meta.env.VITE_BE_URL}/skills`, { skill_name: formProfile.skill_name }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        alert(`Added Skill: ${formProfile.skill_name}`)
-        formProfile.skill_name = ""
-        console.log(formProfile.skill_name);
-
-        getMyData()
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert(`Failed adding skill`)
-      })
+    dispatch(addSkillAction(formProfile, setFormProfile, getMyData))
   }
   const handleSubmitWorkExperience = () => {
     console.log(workMonthYear.split(" "));
     const [month, year] = workMonthYear.split(" ")
-    axios.post(`${import.meta.env.VITE_BE_URL}/experience`, {
-      position: formProfile.position,
-      company: formProfile.company,
-      work_month: month,
-      work_year: year,
-      description: formProfile.work_description
-    }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        alert(`Added Work Experience`)
-        formProfile.position = ""
-        formProfile.company = ""
-        formProfile.work_description = ""
-        setWorkMonthYear('')
-        getMyData()
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert(`Failed adding experience`)
-      })
+    dispatch(addExperienceAction(month, year, setWorkMonthYear, formProfile, setFormProfile, getMyData))
   }
 
   const handleSubmitPortofolio = () => {
-    axios.post(`${import.meta.env.VITE_BE_URL}/portfolio`, {
-      application_name: portofolio.application_name,
-      link_repository: portofolio.link_repository,
-      application: portofolio.application,
-      image: portofolio.image
-    }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        console.log(res);
-        setPortofolio({
-          application_name: "",
-          link_repository: "",
-          application: "",
-          image: ""
-        })
-        alert('Portofolio added')
-        getMyData()
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert('Adding portofolio failed')
-      })
+    dispatch(addPortfolioAction(portofolio, setPortofolio, getMyData))
   }
   const handleDeleteSkill = (e) => {
     const skillId = e.target.id
     console.log(skillId);
-    axios.delete(`${import.meta.env.VITE_BE_URL}/skills/${skillId}`, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-    .then((res)=>{
-      console.log(res);
-      alert('Skill deleted')
-      getMyData()
-    })
-    .catch((err)=>{
-      console.log(err);
-      alert('skill is not deleted')
-    })
+    dispatch(deleteSkillAction(skillId, getMyData))
   }
 
   return (
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
-      {loading === true ? (
+      {loading === true || loadingGetSkills === true || loadingGetPortfolio === true || loadingGetExperience === true ? (
         <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
       ) : (
         <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px] phone:max-tablet:w-full phone:max-tablet:flex-col phone:max-tablet:items-center'>

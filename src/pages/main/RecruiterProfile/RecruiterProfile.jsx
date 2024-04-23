@@ -2,27 +2,16 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import CardRecruiterProfile from '../../../components/modules/Card/CardRecruiterProfile'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { profileRecruiterAction } from '../../../config/redux/action/profileRecruiterAction'
 
 const RecruiterProfile = () => {
-    const [recruiterData, setRecruiterData] = useState({})
-    const [loading, setLoading] = useState(true)
+    // const [recruiterData, setRecruiterData] = useState({})
+    const {loading, myDetail: recruiterData} = useSelector((state)=>state.profileRecruiter) 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     useEffect(()=>{
-        setLoading(true)
-        axios.get(`${import.meta.env.VITE_BE_URL}/recruiters/profile`,{
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-        .then((res)=>{
-            setLoading(false)
-            console.log(res.data.data);
-            setRecruiterData(res.data.data)
-        })
-        .catch((err)=>{
-            setLoading(false)
-            console.log(err.response);
-        })
+        dispatch(profileRecruiterAction())
     },[])
     const handleClickEditProfileCompany = () => {
         navigate('/main/recruiterprofile/editprofilecompany')

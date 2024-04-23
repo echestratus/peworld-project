@@ -3,22 +3,11 @@ import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../components/base/Searchbar/Searchbar'
 import CardHome from '../../../components/modules/Card/CardHome'
 import PaginationButtons from '../../../components/base/Button/PaginationButtons'
+import { useDispatch, useSelector } from 'react-redux'
+import { getWorkerHomeAction } from '../../../config/redux/action/getWorkerHomeAction'
 
 const Home = () => {
-  const [workersData, setWorkersData] = useState({
-    created_at: "",
-    description: "",
-    domicile: "",
-    id: "",
-    job_desk: "",
-    name: "",
-    phone: "",
-    photo: "",
-    skills: "",
-    updated_at: "",
-    user_id: "",
-    workplace: ""
-  })
+  const [workersData, setWorkersData] = useState([])
 
   const [paginationData, setPaginationData] = useState({
     currentPage: 0,
@@ -27,7 +16,7 @@ const Home = () => {
     totalPage: 0
   })
 
-  const [loading, setLoading] = useState(true)
+  const {loading} = useSelector((state)=>state.getWorkerHome)
   const [currentPage, setCurrentPage] = useState(0)
   const [currentPageSearch, setCurrentPageSearch] = useState(0)
   const [isSearching, setIsSearching] = useState(false)
@@ -35,58 +24,10 @@ const Home = () => {
   const [searched, setSearched] = useState('')
   const [sort, setSort] = useState('created_at')
   const [sortBy, setSortBy] = useState('ASC')
+  const dispatch = useDispatch()
   useEffect(() => {
     let page = currentPage + 1
-    setLoading(true)
-    if(searched){
-      setIsSearching(true)
-      page = currentPageSearch + 1
-      axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        params: {
-          search: searched,
-          sort: sort,
-          sortBy: sortBy
-        }
-      })
-        .then((res) => {
-          console.log('show res')
-          console.log(res)
-          setWorkersData(res.data.data)
-          setPaginationData(res.data.pagination)
-          setLoading(false)
-        })
-        .catch((err) => {
-          setLoading(false)
-          console.log(err);
-          alert(`Can't fetch data`)
-        })
-    } else {
-      setIsSearching(false)
-      axios.get(`${import.meta.env.VITE_BE_URL}/workers/?limit=4&page=${page}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        params: {
-          sort: sort,
-          sortBy: sortBy
-        }
-      })
-        .then((res) => {
-          console.log('show res')
-          console.log(res)
-          setWorkersData(res.data.data)
-          setPaginationData(res.data.pagination)
-          setLoading(false)
-        })
-        .catch((err) => {
-          setLoading(false)
-          console.log(err);
-          alert(`Can't fetch data`)
-        })
-    }
+    dispatch(getWorkerHomeAction(searched, setIsSearching, page, currentPageSearch, sort, sortBy, setWorkersData, setPaginationData))
     
   }, [currentPage, searched, sort, sortBy])
 

@@ -1,30 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { getPortfolioPerIdWorkerAction } from '../../../../config/redux/action/getPortfolioPerIdWorkerAction'
 
 const WorkerPortofolio = () => {
     const { id } = useParams()
-    const [portofolio, setPortofolio] = useState([])
+    const {loading, portofolio} = useSelector((state)=>state.getPortfolioPerIdWorker)
     const [image, setImage] = useState('/src/assets/Main/app3.png')
-    const [loading, setLoading] = useState(true)
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true)
-        axios.get(`${import.meta.env.VITE_BE_URL}/portfolio/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        })
-            .then((res) => {
-                setLoading(false)
-                console.log('Show res contain portofolio');
-                console.log(res);
-                setPortofolio(res.data.data)
-            })
-            .catch((err) => {
-                setLoading(false)
-                console.log(err.response);
-                alert('Something wrong')
-            })
+        dispatch(getPortfolioPerIdWorkerAction(id))
     }, [])
     return (
         <div className='w-[693px] h-auto flex justify-start flex-wrap gap-3 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>

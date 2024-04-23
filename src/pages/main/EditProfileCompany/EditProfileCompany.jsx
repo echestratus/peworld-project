@@ -8,13 +8,19 @@ import CardEditProfileCompany from '../../../components/modules/Card/CardEditPro
 import TextArea from '../../../components/base/Input/TextArea'
 import ButtonAuth from '../../../components/base/Button/ButtonAuth'
 import ButtonYellowBGWhite from '../../../components/base/Button/ButtonYellowBGWhite'
+import { useDispatch, useSelector } from 'react-redux'
+import { profileRecruiterAction } from '../../../config/redux/action/profileRecruiterAction'
+import { uploadSingleFileAction } from '../../../config/redux/action/uploadSingleFileAction'
+import { updateProfileRecruitersAction } from '../../../config/redux/action/updateProfileRecruitersAction'
 
 const EditProfileCompany = () => {
   const [CompanyDetail, setCompanyDetail] = useState({})
-  const [loading, setLoading] = useState(true)
+  // const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { myDetail: myDetailRecruiter, loading } = useSelector((state) => state.profileRecruiter)
 
-  const [formProfile, setFormProfile] = useState({
+  let [formProfile, setFormProfile] = useState({
     company: "",
     position: "",
     city: "",
@@ -26,34 +32,12 @@ const EditProfileCompany = () => {
   })
 
   useEffect(() => {
-    setLoading(true)
     getMyData()
   }, [])
   const getMyData = () => {
-    setLoading(true)
-    axios.get(`${import.meta.env.VITE_BE_URL}/recruiters/profile`, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-    .then((res)=>{
-      setLoading(false)
-      console.log(res.data.data);
-      setFormProfile(res.data.data)
-      for(let key in formProfile){
-        if(key === 'photo' && formProfile[key] === null){
-          formProfile[key] = "https://openclipart.org/image/2400px/svg_to_png/250353/icon_user_whiteongrey.png"
-        } else if(formProfile[key]===null){
-          formProfile[key] = ""
-        }
-      }
-
-    })
-    .catch((err)=>{
-      setLoading(false)
-      console.log(err.response);
-      alert(`Something's Wrong`)
-    })
+    dispatch(profileRecruiterAction(setFormProfile))
+    console.log('formProfile');
+    console.log(formProfile);
   }
   const handleChangeProfile = (e) => {
     setFormProfile({
@@ -65,49 +49,11 @@ const EditProfileCompany = () => {
   const handleChangeUploadImage = (e) => {
     console.log(e.target.files[0]);
     const file = e.target.files[0]
-    const formData = new FormData()
-    formData.append('file', file)
-    axios.post(`${import.meta.env.VITE_BE_URL}/upload`, formData, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        const { file_url } = res.data.data
-        console.log(file_url);
-        formProfile.photo = file_url
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert(`can't upload image`)
-      })
+    dispatch(uploadSingleFileAction(file, setFormProfile, formProfile))
   }
 
   const handleSubmitProfile = () => {
-    axios.put(`${import.meta.env.VITE_BE_URL}/recruiters/profile`, {
-      company: formProfile.company,
-      position: formProfile.position,
-      city: formProfile.city,
-      description: formProfile.description,
-      phone: formProfile.phone,
-      instagram: formProfile.instagram,
-      linkedin: formProfile.linkedin,
-      photo: formProfile.photo
-    }, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-      .then((res) => {
-        console.log('show res PUT');
-        console.log(res);
-        alert('Update succeed')
-        getMyData()
-      })
-      .catch((err) => {
-        console.log(err.response);
-        alert('Update failed')
-      })
+    dispatch(updateProfileRecruitersAction(formProfile, getMyData))
   }
   const handleClickCancel = () => {
     navigate('/main/recruiterprofile')
