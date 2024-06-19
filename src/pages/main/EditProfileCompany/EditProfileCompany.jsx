@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { profileRecruiterAction } from '../../../config/redux/action/profileRecruiterAction'
 import { uploadSingleFileAction } from '../../../config/redux/action/uploadSingleFileAction'
 import { updateProfileRecruitersAction } from '../../../config/redux/action/updateProfileRecruitersAction'
+import { ClipLoader } from 'react-spinners'
 
 const EditProfileCompany = () => {
   const [CompanyDetail, setCompanyDetail] = useState({})
@@ -64,9 +65,11 @@ const EditProfileCompany = () => {
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute'></div>
       {loading === true ? (
-        <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
+              <div className='w-full h-screen flex justify-center items-center'>
+                <ClipLoader />
+              </div>
       ) : (
-        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center phone:max-tablet:justify-start'>
+        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:mb-[50px] phone:max-tablet:flex-col phone:max-tablet:items-center phone:max-tablet:justify-start'>
           <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
             <CardEditProfileCompany formProfile={formProfile} handleSubmitProfile={handleSubmitProfile} handleClickCancel={handleClickCancel} handleChangeUploadImage={handleChangeUploadImage} />
           </div>

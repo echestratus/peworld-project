@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { checkRoleAction } from '../../config/redux/action/checkRoleAction'
 import { profileWorkerAction } from '../../config/redux/action/profileWorkerAction'
 import { profileRecruiterAction } from '../../config/redux/action/profileRecruiterAction'
+import { ClipLoader } from 'react-spinners'
 
 const LandingPage = () => {
   // const [loading, setLoading] = useState(false)
@@ -58,7 +59,9 @@ const LandingPage = () => {
   return (
     <div className='font-peworld'>
       {loadingCheckRole === true || loadingProfileRecruiter === true || loadingProfileWorker === true ? (
-        <h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>
+        <div className='flex justify-center items-center min-h-screen'>
+          <ClipLoader />
+        </div>
       ) : (
         <>
           <NavbarLandingPage role={localStorage.getItem('role')} handleClickProfile={handleClickProfile} handleClickLogout={handleClickLogout} />

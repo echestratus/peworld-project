@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getExperiencePerIdWorkerAction } from '../../../../config/redux/action/getExperiencePerIdWorkerAction'
+import { ClipLoader } from 'react-spinners'
 
 const WorkerExperience = () => {
     const { id } = useParams()
@@ -13,7 +14,11 @@ const WorkerExperience = () => {
     }, [])
     return (
         <div className='w-[693px] h-auto flex flex-col mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
-            {loading === true ? (<h1 className='font-bold text-5xl text-center'>LOADING....</h1>) :
+            {loading === true ? (
+                <div className='w-full h-full flex justify-center items-center'>
+                    <ClipLoader />
+                </div>
+            ) :
                 experience.map((value, index) => (
                     <div key={index} className='w-full h-auto flex justify-start phone:max-tablet:justify-center'>
                         <img src="/src/assets/Main/business-bag-svgrepo-com.svg" alt="business-bag" className='w-[74px] h-[74px]' />

@@ -4,6 +4,7 @@ import CardRecruiterProfile from '../../../components/modules/Card/CardRecruiter
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileRecruiterAction } from '../../../config/redux/action/profileRecruiterAction'
+import { ClipLoader } from 'react-spinners'
 
 const RecruiterProfile = () => {
     // const [recruiterData, setRecruiterData] = useState({})
@@ -20,7 +21,9 @@ const RecruiterProfile = () => {
   return (
     <div className='w-full h-auto flex justify-center bg-[#F6F7F8]'>
         {loading ? (
-        <h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>
+        <div className='w-full h-screen flex justify-center items-center'>
+          <ClipLoader />
+        </div>
         ) : (
         <CardRecruiterProfile recruiterData={recruiterData} handleClickEditProfileCompany = {handleClickEditProfileCompany} />
         )}

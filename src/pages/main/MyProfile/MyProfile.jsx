@@ -5,6 +5,7 @@ import CardMyProfile from '../../../components/modules/Footer/CardMyProfile'
 import { useDispatch, useSelector } from 'react-redux'
 import { profileWorkerAction } from '../../../config/redux/action/profileWorkerAction'
 import { getSkillPerIdWorkerAction } from '../../../config/redux/action/getSkillPerIdWorkerAction'
+import { ClipLoader } from 'react-spinners'
 
 const MyProfile = () => {
     const {id} = useParams()
@@ -26,7 +27,11 @@ const MyProfile = () => {
     return (
         <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
             <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
-            {loading === true || loadingSkill === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
+            {loading === true || loadingSkill === true ? (
+                        <div className='w-full h-[900px] flex justify-center items-center'>
+                            <ClipLoader />
+                        </div>
+            ) : (
                 <div className='container w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
                     <CardMyProfile workersDetail={myDetail} workersSkill={mySkill} onClick={handleClickEdit}/>
                     <div className='container w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:mt-5'>

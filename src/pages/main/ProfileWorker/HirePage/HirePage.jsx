@@ -10,6 +10,7 @@ import { getPortfolioPerIdWorkerAction } from '../../../../config/redux/action/g
 import { getSkillPerIdWorkerAction } from '../../../../config/redux/action/getSkillPerIdWorkerAction'
 import { detailWorkerAction } from '../../../../config/redux/action/detailWorkerAction'
 import { addHireAction } from '../../../../config/redux/action/addHireAction'
+import { ClipLoader } from 'react-spinners'
 
 const HirePage = () => {
     const { id } = useParams()
@@ -42,7 +43,9 @@ const HirePage = () => {
     return (
         <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
             {loading === true || loadingSkill === true ? (
-                <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
+                    <div className='w-full h-screen flex justify-center items-center'>
+                        <ClipLoader />
+                    </div>
             ) : (
                 <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
                     <div className='container w-[357px] h-auto rounded-md'>

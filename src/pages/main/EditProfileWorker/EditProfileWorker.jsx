@@ -21,6 +21,7 @@ import { addSkillAction } from '../../../config/redux/action/addSkillAction'
 import { addExperienceAction } from '../../../config/redux/action/addExperienceAction'
 import { addPortfolioAction } from '../../../config/redux/action/addPortfolioAction'
 import { deleteSkillAction } from '../../../config/redux/action/deleteSkillAction'
+import { ClipLoader } from 'react-spinners'
 
 const EditProfileWorker = () => {
   const { id } = useParams()
@@ -126,7 +127,9 @@ const EditProfileWorker = () => {
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
       {loading === true || loadingGetSkills === true || loadingGetPortfolio === true || loadingGetExperience === true ? (
-        <h1 className='font-extrabold text-5xl text-center relative'>LOADING....</h1>
+            <div className='w-full h-[900px] flex justify-center items-center'>
+                <ClipLoader />
+            </div>
       ) : (
         <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px] phone:max-tablet:w-full phone:max-tablet:flex-col phone:max-tablet:items-center'>
           <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px]'>

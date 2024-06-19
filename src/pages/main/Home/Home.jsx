@@ -5,6 +5,7 @@ import CardHome from '../../../components/modules/Card/CardHome'
 import PaginationButtons from '../../../components/base/Button/PaginationButtons'
 import { useDispatch, useSelector } from 'react-redux'
 import { getWorkerHomeAction } from '../../../config/redux/action/getWorkerHomeAction'
+import { ClipLoader } from 'react-spinners'
 
 const Home = () => {
   const [workersData, setWorkersData] = useState([])
@@ -56,7 +57,11 @@ const Home = () => {
         <Searchbar value={search} handleChange={handleSearchChange} onClick={handleSearchClick} handleSortChange={handleSortChange} handleSortByChange={handleSortByChange} />
       </div>
       <div className='w-[1140px] h-auto mb-28 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[80%]'>
-          {loading===true ? (<h1 className='font-extrabold text-5xl text-center'>LOADING....</h1>) : workersData.map((value, index)=>(<CardHome key={index} workersData={value} />))  }
+          {loading===true ? (
+                  <div className='flex justify-center items-center'>
+                  <ClipLoader />
+                </div>
+          ) : workersData.map((value, index)=>(<CardHome key={index} workersData={value} />))  }
       </div>
       <div className='w-[1140px] h-auto mb-20 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[90%]'>
         {/* {loading===false && (<PaginationButtons pageCount={paginationData.totalPage} />)} */}

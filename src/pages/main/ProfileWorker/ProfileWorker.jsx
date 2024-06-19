@@ -5,6 +5,7 @@ import CardProfileWorker from '../../../components/modules/Card/CardProfileWorke
 import { useDispatch, useSelector } from 'react-redux'
 import { detailWorkerAction } from '../../../config/redux/action/detailWorkerAction'
 import { getSkillPerIdWorkerAction } from '../../../config/redux/action/getSkillPerIdWorkerAction'
+import { ClipLoader } from 'react-spinners'
 
 const ProfileWorker = () => {
   const { id } = useParams()
@@ -23,7 +24,11 @@ const ProfileWorker = () => {
   return (
     <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
       <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
-      {loading === true || loadingSkill === true ? (<h1 className='font-bold text-6xl mx-auto relative text-center'>LOADING....</h1>) : (
+      {loading === true || loadingSkill === true ? (
+        <div className='w-full h-[900px] flex justify-center items-center'>
+            <ClipLoader />
+        </div>
+      ) : (
         <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
           <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px]'>
               <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} handleClickHire={handleClickHire} />

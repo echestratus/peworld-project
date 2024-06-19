@@ -19,6 +19,7 @@ import MyExperience from '../../pages/main/MyProfile/MyExperience/MyExperience'
 import RecruiterProfile from '../../pages/main/RecruiterProfile/RecruiterProfile'
 import ProtectedRoute from '../../components/modules/ProtectedRoute/ProtectedRoute'
 import HirePage from '../../pages/main/ProfileWorker/HirePage/HirePage'
+import RootLandingPage from '../../pages/LandingPage/RootLandingPage'
 
 
 
@@ -33,7 +34,7 @@ const RouterPeworld = () => {
                         <Route path='registerrecruiter' element={<RegisterRecruiter />} />
                     </Route>
                 </Route>
-                <Route path='/' element={<LandingPage />} />
+                <Route path='/' element={<RootLandingPage />} />
                 <Route path='/main' element={<ProtectedRoute><Main /></ProtectedRoute>}>
                     <Route path='myprofile/:id' element={<MyProfile />}>
                         <Route path='portofolio' element={<MyPortofolio />} />
