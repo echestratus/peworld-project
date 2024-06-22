@@ -6,13 +6,14 @@ import MailLogo from '../../../assets/Main/mail-logo.svg'
 import InstaLogo from '../../../assets/Main/instagram.svg'
 import PhoneLogo from '../../../assets/Main/phone-logo.svg'
 import LinkedInLogo from '../../../assets/Main/linkedin-logo.svg'
+import EditLogoWhite from '../../../assets/Main/edit-logo-white.svg'
 
 const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) => {
     return (
         <div className='w-[1140px] h-auto flex flex-col items-center mt-28 mb-52 relative rounded-md bg-white phone:max-tablet:max-w-[640px] phone:max-tablet:w-full'>
             <div className='absolute w-full h-[200px] bg-[#5E50A1] rounded-t-md phone:max-tablet:max-w-[640px]'>
                 <label className='flex items-center justify-start gap-4 relative left-[85%] top-[75%] hover:cursor-pointer phone:max-tablet:gap-1 phone:max-tablet:left-[80%]'>
-                    <img src="/src/assets/Main/edit-logo-white.svg" alt="edit-logo" className='w-[16px] h-[16px] phone:max-tablet:w-[8px] phone:max-tablet:h-[8px]' />
+                    <img src={EditLogoWhite} alt="edit-logo" className='w-[16px] h-[16px] phone:max-tablet:w-[8px] phone:max-tablet:h-[8px]' />
                     <p className='text-[22px] text-white font-normal phone:max-tablet:text-[11px]'>Ubah Latar</p>
                 </label>
             </div>

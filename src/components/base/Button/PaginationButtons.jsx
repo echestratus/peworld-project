@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import {ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/solid'
+
 
 const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
     const handlePageClick = ({selected}) => {
@@ -14,8 +16,9 @@ const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
                 //     <span className='text-[#9EA0A5]'>....</span>
                 // }
                 nextLabel={
-                    showNextPage && (<span className='w-[58px] h-[58px] border border-solid border-[#E2E5ED] flex items-center justify-center bg-white rounded-md hover:bg-[#5E50A1] hover:text-white hover:cursor-pointer phone:max-tablet:w-[25px] phone:max-tablet:h-[25px]'>
-                    <img src="/src/assets/Main/arrow-right.svg" alt="arrow-right" className='w-[11.75px] h-[20px]' />
+                    showNextPage && (<span className='group w-[58px] h-[58px] border border-solid border-[#E2E5ED] flex items-center justify-center bg-white rounded-md hover:bg-[#5E50A1] hover:cursor-pointer phone:max-tablet:w-[25px] phone:max-tablet:h-[25px]'>
+                    {/* <img src={ChevronRightIcon} alt="arrow-right" className='w-[11.75px] h-[20px]' /> */}
+                    <ChevronRightIcon className='w-[65%] text-[#9EA0A5] group-hover:text-white' />
                 </span>)
                     
                 }
@@ -23,8 +26,9 @@ const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
                 pageRangeDisplayed={5}
                 pageCount={pageCount}
                 previousLabel={
-                    showPrevPage && (<span className='w-[58px] h-[58px] border border-solid border-[#E2E5ED] flex items-center justify-center bg-white rounded-md hover:bg-[#5E50A1] hover:text-white hover:cursor-pointer phone:max-tablet:w-[25px] phone:max-tablet:h-[25px]'>
-                    <img src="/src/assets/Main/arrow-left.svg" alt="arrow-left" className='w-[11.75px] h-[20px]' />
+                    showPrevPage && (<span className='group w-[58px] h-[58px] border border-solid border-[#E2E5ED] flex items-center justify-center bg-white rounded-md hover:bg-[#5E50A1] hover:cursor-pointer phone:max-tablet:w-[25px] phone:max-tablet:h-[25px]'>
+                    {/* <img src="/src/assets/Main/arrow-left.svg" alt="arrow-left" className='w-[11.75px] h-[20px]' /> */}
+                    <ChevronLeftIcon className='w-[65%] text-[#9EA0A5] group-hover:text-white' />
                 </span>)
                     
                 }
