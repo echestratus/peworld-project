@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import Input from '../../../components/base/Input/Input'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ButtonAuth from '../../../components/base/Button/ButtonAuth'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginAction } from '../../../config/redux/action/loginAction'
 

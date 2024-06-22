@@ -8,8 +8,6 @@ import { profileRecruiterAction } from '../../config/redux/action/profileRecruit
 import { ClipLoader } from 'react-spinners'
 import ImgPc from '../../assets/LandingPage/img-pc.png'
 import ImgLaptop from '../../assets/LandingPage/img-laptop.png'
-import CheckBlue from '../../assets/LandingPage/checkBlue.svg'
-import CheckGreen from '../../assets/LandingPage/checkGreen.svg'
 import ImgDesktop from '../../assets/LandingPage/img-desktop.png'
 import WaveImage from '../../assets/LandingPage/wave.svg'
 import HarryImage from '../../assets/LandingPage/harry.png'

@@ -20,7 +20,11 @@ export default {
       listStyleImage: {
         checkgreen: 'url("/src/assets/LandingPage/checkGreen.svg")',
         checkblue: 'url("/src/assets/LandingPage/checkBlue.svg")',
-      }
+      },
+      backgroundImage: {
+        'auth-bgoverlay': 'url("/src/assets/Auth/bg-overlay.svg")',
+        'auth-bgimage': 'url("/src/assets/Auth/bg-image.png")',
+      },
     },
   },
   plugins: [],
