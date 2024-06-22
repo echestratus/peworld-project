@@ -1,5 +1,11 @@
 import React from 'react'
 import ButtonMain from '../../base/Button/ButtonMain'
+import IconUser from '../../../assets/Main/icon_user_whiteongrey.svg'
+import MapPin from '../../../assets/Main/map-pin.svg'
+import MailLogo from '../../../assets/Main/mail-logo.svg'
+import InstaLogo from '../../../assets/Main/instagram.svg'
+import PhoneLogo from '../../../assets/Main/phone-logo.svg'
+import LinkedInLogo from '../../../assets/Main/linkedin-logo.svg'
 
 const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) => {
     return (
@@ -13,13 +19,13 @@ const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) 
             {recruiterData.photo ? (
                 <img src={recruiterData.photo} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] relative rounded-full' />
             ) : (
-                <img src='/src/assets/Main/icon_user_whiteongrey.svg' alt='user-photo' className='w-[150px] h-[150px] mt-[125px] relative rounded-full' />
+                <img src={IconUser} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] relative rounded-full' />
             )}
             <div className='relative w-full h-auto bg-white rounded-b-md flex flex-col items-center pb-36'>
                 <p className='text-[22px] text-[#1F2A36] font-semibold'>{recruiterData.company}</p>
                 <p className='text=[14px] text-[#1F2A36] font-normal'>{recruiterData.position}</p>
                 <label className='flex items-center justify-start gap-4'>
-                    <img src="/src/assets/Main/map-pin.svg" alt="mail-logo" className='w-[16px] h-[16px]' />
+                    <img src={MapPin} alt="map-logo" className='w-[16px] h-[16px]' />
                     <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.city}</p>
                 </label>
                 <p className='text-[14px] text-[#9EA0A5] font-normal text-center'>{recruiterData.description}</p>
@@ -28,19 +34,19 @@ const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) 
                 </div>
                 <div className='flex flex-col items-start gap-3 mt-10'>
                     <label className='flex items-center justify-start gap-4'>
-                        <img src="/src/assets/Main/mail-logo.svg" alt="mail-logo" className='w-[24px] h-[24px]' />
+                        <img src={MailLogo} alt="mail-logo" className='w-[24px] h-[24px]' />
                         <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.email}</p>
                     </label>
                     <label className='flex items-center justify-start gap-4'>
-                        <img src="/src/assets/Main/instagram.svg" alt="mail-logo" className='w-[24px] h-[24px]' />
+                        <img src={InstaLogo} alt="mail-logo" className='w-[24px] h-[24px]' />
                         <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.instagram}</p>
                     </label>
                     <label className='flex items-center justify-start gap-4'>
-                        <img src="/src/assets/Main/phone-logo.svg" alt="mail-logo" className='w-[24px] h-[24px]' />
+                        <img src={PhoneLogo} alt="mail-logo" className='w-[24px] h-[24px]' />
                         <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.phone}</p>
                     </label>
                     <label className='flex items-center justify-start gap-4'>
-                        <img src="/src/assets/Main/linkedin-logo.svg" alt="mail-logo" className='w-[24px] h-[24px]' />
+                        <img src={LinkedInLogo} alt="mail-logo" className='w-[24px] h-[24px]' />
                         <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.linkedin}</p>
                     </label>
                 </div>

@@ -22,6 +22,7 @@ import { addExperienceAction } from '../../../config/redux/action/addExperienceA
 import { addPortfolioAction } from '../../../config/redux/action/addPortfolioAction'
 import { deleteSkillAction } from '../../../config/redux/action/deleteSkillAction'
 import { ClipLoader } from 'react-spinners'
+import UploadIcon from '../../../assets/Main/upload-img.svg'
 
 const EditProfileWorker = () => {
   const { id } = useParams()
@@ -213,7 +214,7 @@ const EditProfileWorker = () => {
                     {portofolio.image ? (
                       <img src={portofolio.image} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer object-cover phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]' />
                     ) : (
-                      <img src="/src/assets/Main/upload-img.svg" alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]' />
+                      <img src={UploadIcon} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]' />
                     )}
                     <input type='file' accept='image/*' className='hidden' onChange={handleChangeUploadImagePortofolio} />
                   </label>

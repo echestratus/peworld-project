@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getExperiencePerIdWorkerAction } from '../../../../config/redux/action/getExperiencePerIdWorkerAction'
 import { ClipLoader } from 'react-spinners'
+import BusinessLogo from '../../../../assets/Main/business-bag-svgrepo-com.svg'
 
 const MyExperience = () => {
     const { id } = useParams()
@@ -22,7 +23,7 @@ const MyExperience = () => {
             ) :
                 experience.map((value, index) => (
                     <div key={index} className='w-full h-auto flex justify-start phone:max-tablet:justify-center phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
-                        <img src="/src/assets/Main/business-bag-svgrepo-com.svg" alt="business-bag" className='w-[74px] h-[74px]' />
+                        <img src={BusinessLogo} alt="business-bag" className='w-[74px] h-[74px]' />
                         <div className='w-[540px] h-auto ml-5 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[246px]'>
                             <p className='text-[20px] font-semibold text-[#1F2A36]'>{value.position}</p>
                             <p className='text-[18px] font-normal text-[#46505C]'>{value.company}</p>
