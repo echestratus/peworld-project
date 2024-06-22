@@ -198,7 +198,7 @@ const RootLandingPage = () => {
             max-tablet:w-[100%] max-tablet:flex max-tablet:flex-col max-tablet:justify-start
             '>
                 <p className='font-semibold text-[36px] text-[#1F2A36] leading-[56px] mb-3'>The best nation's talent for revolution 4.0 change</p>
-                <ul style={{ "--check-blue": `url(${CheckBlue})` }} className='list-image-[var(--check-blue)] list-outside leading-[50px]'>
+                <ul className={`list-image-checkblue list-outside leading-[50px]`}>
                     <li className='font-normal text-[16px] text-[#46505C] pl-5'>Verificated talent.</li>
                     <li className='font-normal text-[16px] text-[#46505C] pl-5'>Equipped with great soft skills.</li>
                     <li className='font-normal text-[16px] text-[#46505C] pl-5'>Experienced in handling complex projects.</li>
@@ -228,14 +228,14 @@ const RootLandingPage = () => {
                     laptop:flex laptop:gap-20
                     max-tablet:flex max-tablet:gap-2
                     '>
-                        <ul style={{ "--check-green": `url(${CheckGreen})` }} className='list-image-[var(--check-green)] list-outside leading-[50px]'>
+                        <ul className={`list-image-checkgreen list-outside leading-[50px]`}>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>Java</li>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>Kotlin</li>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>PHP</li>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>JavaScript</li>
                         </ul>
 
-                        <ul style={{ "--check-green": `url(${CheckGreen})` }} className='list-image-[var(--check-green)] list-outside leading-[50px]'>
+                        <ul className={`list-image-checkgreen list-outside leading-[50px]`}>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>Golang</li>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>C++</li>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>Ruby</li>

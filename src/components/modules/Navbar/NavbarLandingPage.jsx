@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import ButtonBgWhite from '../../base/Button/ButtonBgWhite'
 import ButtonMain from '../../base/Button/ButtonMain'
+import PeworldBlue from '../../../assets/Main/peworldBlue.svg'
 
 const NavbarLandingPage = ({ role, handleClickProfile, handleClickLogout }) => {
     const navigate = useNavigate()
@@ -12,7 +13,7 @@ const NavbarLandingPage = ({ role, handleClickProfile, handleClickLogout }) => {
             max-tablet:w-[90%] max-tablet:h-auto max-tablet:bg-white max-tablet:flex max-tablet:justify-between max-tablet:items-center
             '>
                 <div className='container w-[127px] h-[35px] max-tablet:w-[63.5px] max-tablet:h-[17.5px]'>
-                    <img src="/src/assets/Main/peworldBlue.svg" alt="Peworld" onClick={() => navigate(`/main/home`)} className='object-cover w-full h-full hover:cursor-pointer' />
+                    <img src={PeworldBlue} alt="Peworld" onClick={() => navigate(`/main/home`)} className='object-cover w-full h-full hover:cursor-pointer' />
                 </div>
                 {role === 'worker' || role === 'recruiter' ? (
                     <>

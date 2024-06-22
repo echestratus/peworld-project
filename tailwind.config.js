@@ -17,6 +17,10 @@ export default {
       colors: {
         'peworld-blue': '#5E50A1',
       },
+      listStyleImage: {
+        checkgreen: 'url("/src/assets/LandingPage/checkGreen.svg")',
+        checkblue: 'url("/src/assets/LandingPage/checkBlue.svg")',
+      }
     },
   },
   plugins: [],
