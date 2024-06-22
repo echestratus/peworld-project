@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { profileWorkerAction } from '../../../config/redux/action/profileWorkerAction'
 import { profileRecruiterAction } from '../../../config/redux/action/profileRecruiterAction'
+import DropDownNotification from '../Card/DropDownNotification'
 
 const NavbarMain = () => {
     // const [id, setId] = useState('')
@@ -43,8 +44,8 @@ const NavbarMain = () => {
                 ) :
                     role === 'worker' ? (
                         <ul className='flex items-center w-auto h-auto gap-10 list-none phone:max-tablet:gap-5 phone:max-tablet:mr-3'>
-                            <li className='w-[24px] h-[24px]'>
-                                <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full' />
+                            <li className='w-[24px] h-[24px]' onClick={() => navigate('/main/notifications')}>
+                                <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full hover:cursor-pointer' />
                             </li>
                             <li className='w-[24px] h-[24px]'>
                                 <img src="/src/assets/Main/mail-logo.svg" alt="mail" className='object-cover w-full h-full' />
@@ -63,7 +64,7 @@ const NavbarMain = () => {
                     ) : role === 'recruiter' ? (
                         <ul className='flex items-center w-auto h-auto gap-10 list-none phone:max-tablet:gap-5 phone:max-tablet:mr-3'>
                             <li className='w-[24px] h-[24px]'>
-                                <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full' />
+                                <img src="/src/assets/Main/bell-logo.svg" alt="bell" className='object-cover w-full h-full hover:cursor-pointer' />
                             </li>
                             <li className='w-[24px] h-[24px]'>
                                 <img src="/src/assets/Main/mail-logo.svg" alt="mail" className='object-cover w-full h-full' />
@@ -84,6 +85,7 @@ const NavbarMain = () => {
                     )}
 
             </nav>
+            {/* <DropDownNotification /> */}
         </div >
     )
 }

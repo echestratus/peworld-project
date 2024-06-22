@@ -20,6 +20,7 @@ import RecruiterProfile from '../../pages/main/RecruiterProfile/RecruiterProfile
 import ProtectedRoute from '../../components/modules/ProtectedRoute/ProtectedRoute'
 import HirePage from '../../pages/main/ProfileWorker/HirePage/HirePage'
 import RootLandingPage from '../../pages/LandingPage/RootLandingPage'
+import Notifications from '../../pages/main/Notifications'
 
 
 
@@ -49,6 +50,7 @@ const RouterPeworld = () => {
                     <Route path='profileworker/:id/hire' element={<HirePage />} />
                     <Route path='recruiterprofile' element={<RecruiterProfile />} />
                     <Route path='recruiterprofile/editprofilecompany' element={<EditProfileCompany />} />
+                    <Route path='notifications' element={<Notifications />} />
                 </Route>
             </Routes>
         </BrowserRouter>

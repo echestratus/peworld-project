@@ -24,6 +24,11 @@ export const profileRecruiterAction = (setFormProfile) => (dispatch) => {
         })
         .catch((err) => {
           console.log(err.response);
+          if (err.response.data.message === "token expired") {
+            localStorage.removeItem('token')
+            localStorage.removeItem('refreshToken')
+            localStorage.removeItem('role')
+        }
           dispatch({
             type: "PROFILE_RECRUITER_FAILED",
             payload: err.response

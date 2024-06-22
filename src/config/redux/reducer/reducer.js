@@ -22,6 +22,7 @@ import updateProfileWorkersReducer from "./updateProfileWorkersReducer";
 import getWorkerHomeReducer from "./getWorkerHomeReducer";
 import detailWorkerReducer from "./detailWorkerReducer";
 import addHireReducer from "./addHireReducer";
+import getHireWithWorkerReducer from "./getHireWithWorkerReducer";
 
 const rootReducer = combineReducers({
     login: loginReducer,
@@ -46,7 +47,8 @@ const rootReducer = combineReducers({
     updateProfileWorkers: updateProfileWorkersReducer,
     getWorkerHome: getWorkerHomeReducer,
     detailWorker: detailWorkerReducer,
-    addHire: addHireReducer
+    addHire: addHireReducer,
+    getHireWithWorker: getHireWithWorkerReducer
 })
 
 export default rootReducer

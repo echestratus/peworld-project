@@ -9,9 +9,11 @@ export const loginAction = (form, navigate) => (dispatch) => {
         password: form.password
     })
         .then((res) => {
-            const { token, refreshToken } = res.data.data
+            console.log(res.data.data);
+            const { token, refreshToken, role } = res.data.data
             localStorage.setItem('token', token)
             localStorage.setItem('refreshToken', refreshToken)
+            localStorage.setItem('role', role)
             dispatch({
                 type: "LOGIN_SUCCEED"
             })

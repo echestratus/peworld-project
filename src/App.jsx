@@ -1,5 +1,7 @@
 import React from 'react'
 import RouterPeworld from './config/RouterPeworld/RouterPeworld'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 
 const App = () => {

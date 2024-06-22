@@ -7,7 +7,7 @@ const CardProfileWorker = ({ workersDetail, workersSkill, handleClickHire }) => 
     const [role, setRole] = useState(localStorage.getItem('role'))
     return (
         <div className='w-[357px] h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
-            {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
+            {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8 object-cover' />)}
 
             <div className='w-[297px] h-auto'>
                 <p className='text-[22px] font-semibold text-[#1F2A36]'>{name}</p>

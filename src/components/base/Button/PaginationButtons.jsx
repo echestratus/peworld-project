@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
-import styles from './PaginationButton.module.css'
 
 const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
     const handlePageClick = ({selected}) => {
@@ -8,9 +7,6 @@ const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
     }
     const showNextPage = currentPage !== pageCount-1
     const showPrevPage = currentPage !== 0
-    const customStyles = {
-        active: 'bg-peworld-blue text-[#FFFFFF]'
-    }
     return (
         <div>
             <ReactPaginate
@@ -34,7 +30,7 @@ const PaginationButtons = ({ pageCount, setCurrentPage, currentPage }) => {
                 }
                 containerClassName="flex justify-center items-center gap-4 list-none phone:max-tablet:gap-2 phone:max-tablet:w-full phone:max-tablet:mx-0 phone:max-tablet:px-0"
                 pageClassName="w-[58px] h-[58px] flex justify-center items-center border border-solid border-[#E2E5ED] rounded-md bg-white text-[18px] font-[700] text-[#9EA0A5] hover:bg-[#5E50A1] hover:text-white hover:cursor-pointer phone:max-tablet:text-[10px] phone:max-tablet:w-[25px] phone:max-tablet:h-[25px]"
-                activeClassName={customStyles.active}
+                activeClassName="reactPaginateActive"
             />
         </div>
     )

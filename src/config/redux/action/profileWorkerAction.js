@@ -31,6 +31,11 @@ export const profileWorkerAction = (setFormProfile, formProfile) => (dispatch) =
         })
         .catch((err) => {
             console.log(err.response);
+            if (err.response.data.message === "token expired") {
+                localStorage.removeItem('token')
+                localStorage.removeItem('refreshToken')
+                localStorage.removeItem('role')
+            }
             dispatch({
                 type: "PROFILE_WORKER_FAILED",
                 payload: err.response

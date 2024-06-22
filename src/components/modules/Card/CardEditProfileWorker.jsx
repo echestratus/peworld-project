@@ -7,7 +7,7 @@ const CardEditProfileWorker = ({ workersDetail, handleSubmitProfile, handleClick
     return (
         <div className='w-[357px] h-auto flex flex-col items-center justify-start relative phone:max-tablet:min-w-[320px] phone:max-tablet:max-w-[640px]'>
             <div className='w-full h-auto flex flex-col items-center justify-start bg-white rounded-md relative'>
-                {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />)}
+                {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='w-[150px] h-[150px] rounded-full mt-8' />) : (<img src={photo} alt="photo" className='w-[150px] h-[150px] rounded-full mt-8 object-cover' />)}
                 <div className='w-full h-auto flex justify-center items-center gap-2'>
                     <label>
                         <img src="/src/assets/Main/edit-logo.svg" alt="edit-logo" className='w-[16px] h-[16px] hover:cursor-pointer' />
