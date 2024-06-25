@@ -60,8 +60,23 @@ npm run lint
 
 ### Documentation
 
-- [Postman API colletion]()
-- [PostgreSQL database query](./query.sql)
+1.  **Landing Page**
+
+    ![Landing Page](https://github.com/echestratus/peworld-project/blob/main/public/LandingPage.png)
+
+2.  **Login Page**
+
+    ![Login Page](https://github.com/echestratus/peworld-project/blob/main/public/LoginPage.png)
+
+3.  **Register Page**
+
+    Register for Worker
+
+    ![Login Page](https://github.com/echestratus/peworld-project/blob/main/public/RegisterWorker.png)
+
+    Register for Recruiter
+
+    ![Login Page Recruiter](https://github.com/echestratus/peworld-project/blob/main/public/RegisterRecruiter.png)
 
 ### Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
