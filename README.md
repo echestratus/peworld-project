@@ -14,8 +14,8 @@
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Installation](#installation)
-  - [Documentation](#documentation)
-  - [Related Project](#related-project)
+- [Documentation](#documentation)
+- [Related Project](#related-project)
  
 ## About The Project
 
