@@ -8,7 +8,7 @@ const CardOpinion = ({img, name, job, description}) => {
     '>
         <div className='w-full flex justify-center'>
             <img src={img} alt="image-user" className='
-            laptop:w-[120px] laptop:h-[120px] laptop:rounded-full laptop:outline laptop:outline-8 laptop:outline-[#FBB0175E] laptop:mx-auto
+            laptop:w-[120px] laptop:h-[120px] laptop:rounded-full laptop:outline laptop:outline-8 laptop:outline-[#FBB0175E] laptop:mx-auto object-cover
             max-tablet:w-[90px] max-tablet:h-[90px] max-tablet:rounded-full max-tablet:outline max-tablet:outline-8 max-tablet:outline-[#FBB0175E] max-tablet:mx-auto
             ' />
         </div>
