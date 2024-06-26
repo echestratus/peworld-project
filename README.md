@@ -131,7 +131,7 @@ Peworld is a dynamic platform designed to connect talented workers with recruite
    - **Quick Navigation**: Easily browse through profiles to find the right fit for your needs.
 
 3. **Worker Profile Details**
-   - **Detailed Profiles**: Click on a worker's profile to view their detailed information, including skills, experience, and availability.
+   - **Detailed Profiles**: Click on a worker's profile to view their detailed information, including skills, experience, and portfolio.
    - **User-Friendly Layout**: Profiles are designed to be clear and informative, making it easy to assess potential candidates.
 
 4. **Role-Specific Profiles**
