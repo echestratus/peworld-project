@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-    <img src="https://github.com/echestratus/peworld-project/blob/main/src/assets/LandingPage/peworld-blue.svg"/>
+    <img src="https://github.com/echestratus/peworld-project/blob/main/src/assets/LandingPage/peworld-blue.svg" width="1000px"/>
   <br />
   <h1>Peworld</h1>
     <a href="https://peworlds-project.netlify.app/">View Demo</a>
