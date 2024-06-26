@@ -60,23 +60,58 @@ npm run lint
 
 ### Documentation
 
-1.  **Landing Page**
-
-    ![Landing Page](https://github.com/echestratus/peworld-project/blob/main/public/LandingPage.png)
-
-2.  **Login Page**
-
-    ![Login Page](https://github.com/echestratus/peworld-project/blob/main/public/LoginPage.png)
-
-3.  **Register Page**
-
-    Register for Worker
-
-    ![Login Page](https://github.com/echestratus/peworld-project/blob/main/public/RegisterWorker.png)
-
-    Register for Recruiter
-
-    ![Login Page Recruiter](https://github.com/echestratus/peworld-project/blob/main/public/RegisterRecruiter.png)
+<p align="center" display=flex>
+  <table>
+  <tr>
+    <td>Login</td>
+    <td>Register Worker</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/LoginPage.png" /></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/RegisterWorker.png"/></td>
+  </tr>
+  <tr>
+    <td>Register Recruiter</td>
+    <td>Landing Page</td>
+  </tr>
+    <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/RegisterRecruiter.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/LandingPage.png"/></td>
+  </tr>
+    <tr>
+    <td>Home Page</td>
+    <td>Detail Profile Portfolio</td>
+  </tr>
+    <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/HomePage.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/DetailProfilePortfolio.png"/></td>
+  </tr>
+  <tr>
+    <td>Detail Profile Experience</td>
+    <td>Edit Profile Worker</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/DetailProfileExperience.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/EditProfileWorker.png"/></td>
+  </tr>
+  <tr>
+    <td>Notification Worker</td>
+    <td>Profile Recruiter</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/NotificationWorkerPage.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/ProfileRecruiterPage.png"/></td>
+  </tr>
+  <tr>
+    <td>Edit Profile Worker</td>
+    <td>Hire Page</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/EditProfileRecruiter.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/EditProfileRecruiter.png"/></td>
+  </tr>   
+  </table>
+</p>
 
 ### Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
