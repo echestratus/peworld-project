@@ -15,7 +15,10 @@
   - [Built With](#built-with)
 - [Installation](#installation)
 - [Documentation](#documentation)
+- [Feature](#feature)
 - [Related Project](#related-project)
+- [Contact](#contact)
+- [Contribution](#contribution)
  
 ## About The Project
 
@@ -58,7 +61,7 @@ npm run dev
 npm run lint
 ```
 
-### Documentation
+## Documentation
 
 <p align="center" display=flex>
   <table>
@@ -108,10 +111,47 @@ npm run lint
   </tr>
   <tr>
     <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/EditProfileRecruiter.png"/></td>
-    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/EditProfileRecruiter.png"/></td>
+    <td><img src="https://github.com/echestratus/peworld-project/blob/main/public/HirePage.png"/></td>
   </tr>   
   </table>
 </p>
 
-### Related Project
+## Feature
+
+## Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
+
+## Contact
+
+Feel free to contact me if there is any question you want to ask regarding this project or if you just want to get in touch.
+
+- Email: farhanz.nh.13@gmail.com
+- LinkedIn: https://www.linkedin.com/in/farhan-nur-hakim/
+
+## Contribution
+### How to Contribute
+
+Contributing project to github is pretty straight forward.
+1. **Fork the Repository**: Click the "Fork" button at the top-right corner of this page to create your own copy of the repository.
+2. **Installation**: Do the installation process right [here](#installation).
+3. **Create a new branch**: Create a new branch to work on your changes.
+    ```sh
+    git branch -M feature/your-feature-name
+    ```
+4. **Make changes**: Implement your changes or new features in your branch.
+5. **Commit your changes**: After making your changes, commit them with a descriptive message.
+   ```sh
+   git add .
+   git commit -m "Add description of your changes"
+   ```
+6. **Push to GitHub**: Push your changes to your forked repository.
+   ```sh
+   git push origin feature/your-feature-name
+   ```
+7. **Create Pull Request**: Go to the original repository and open a pull request to merge your changes.
+    - Navigate to your fork on GitHub.
+    - Click on the "New Pull Request" button.
+    - Select the base repository and branch you want to merge into.
+    - Provide a detailed description of your changes and click "Create Pull Request".
+
+
