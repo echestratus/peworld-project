@@ -15,7 +15,7 @@
   - [Built With](#built-with)
 - [Installation](#installation)
 - [Documentation](#documentation)
-- [Feature](#feature)
+- [Feature](#key-features)
 - [Related Project](#related-project)
 - [Contact](#contact)
 - [Contribution](#contribution)
@@ -116,7 +116,44 @@ npm run lint
   </table>
 </p>
 
-## Feature
+## Peworld Project - Feature Overview
+
+Peworld is a dynamic platform designed to connect talented workers with recruiters seeking their skills. Our website offers a seamless experience tailored to the specific needs of both workers and recruiters. Below is a brief overview of the key features available on Peworld:
+
+### Key Features
+
+1. **User Registration and Sign-In**
+   - **Flexible Registration**: Users can register as either a worker or a recruiter.
+   - **Secure Sign-In**: Access your account with a simple and secure sign-in process.
+
+2. **Home Page Worker Listings**
+   - **Comprehensive Directory**: View a curated list of workers directly on the home page.
+   - **Quick Navigation**: Easily browse through profiles to find the right fit for your needs.
+
+3. **Worker Profile Details**
+   - **Detailed Profiles**: Click on a worker's profile to view their detailed information, including skills, experience, and availability.
+   - **User-Friendly Layout**: Profiles are designed to be clear and informative, making it easy to assess potential candidates.
+
+4. **Role-Specific Profiles**
+   - **Personalized View**: Users can view their own profiles tailored to their registered role.
+     - **Worker View**: Workers can see and manage their professional profile showcasing their abilities.
+     - **Recruiter View**: Recruiters can view their profile focused on their hiring capabilities and company information.
+
+5. **Profile Editing**
+   - **Customizable Profiles**: Both workers and recruiters can edit their profiles to keep information up-to-date.
+   - **Role-Based Customization**: Editing options are specific to the user's role, ensuring relevant and accurate profile management.
+
+6. **Hiring Process**
+   - **Recruiter Tools**: Recruiters can directly hire workers from their profiles.
+   - **Efficient Interaction**: Simplifies the hiring process with straightforward actions and clear communication channels.
+
+7. **Employment Status for Workers**
+   - **Visibility of Hiring History**: Workers can see a list of recruiters who have hired them, providing a transparent employment history.
+   - **Career Management**: Keep track of who has hired you and manage your professional journey effectively.
+
+---
+
+Peworld aims to streamline the connection between workers and recruiters, providing tools and features that facilitate easy and effective collaboration. Whether you're seeking a new opportunity or looking to hire top talent, Peworld is designed to meet your needs.
 
 ## Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
@@ -153,5 +190,8 @@ Contributing project to github is pretty straight forward.
     - Click on the "New Pull Request" button.
     - Select the base repository and branch you want to merge into.
     - Provide a detailed description of your changes and click "Create Pull Request".
+
+For more detailed information, visit our website or contact our support team.
+
 
 
