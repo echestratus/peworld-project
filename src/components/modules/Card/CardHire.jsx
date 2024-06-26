@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SkillsList from '../../base/Button/SkillsList'
+import MapPin from '../../../assets/Main/map-pin.svg'
 
 const CardHire = ({ workersDetail, workersSkill }) => {
     const { name, domicile, job_desk, workplace, description, email, photo } = workersDetail
@@ -12,7 +13,7 @@ const CardHire = ({ workersDetail, workersSkill }) => {
                 <p className='text-[22px] font-semibold text-[#1F2A36]'>{name}</p>
                 <p className='text-[14px] font-normal text-[#1F2A36]'>{job_desk}</p>
                 <div className='flex items-center justify-start gap-2 mr-auto'>
-                    <img src="/src/assets/Main/map-pin.svg" alt="map-pin" className='w-[16px] h-[16px]' />
+                    <img src={MapPin} alt="map-pin" className='w-[16px] h-[16px]' />
                     <p className='text-[14px] font-normal text-[#9EA0A5]'>{domicile}</p>
                 </div>
                 <p className='text-[14px] font-normal text-[#9EA0A5]'>{workplace}</p>
