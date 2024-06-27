@@ -49,7 +49,7 @@ npm install
 VITE_BE_URL=[Backend API]
 ```
 
-6. Run this command to run the server locally
+4. Run this command to run the server locally
 
 ```sh
 npm run dev
