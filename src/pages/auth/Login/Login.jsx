@@ -31,7 +31,9 @@ const Login = () => {
             <Input type='password' name='password' placeholder='Input password' label='Password' value={form.password} onChange={handleChange} />
         </div>
         <p className='my-8 text-right font-normal text-base text-[#1F2A36]'>Forgot password?</p>
-        <ButtonAuth onClick={handleSubmit}>{loading ? "Loading" : "Login"}</ButtonAuth>
+        <div className='h-[50px] w-full'>
+            <ButtonAuth onClick={handleSubmit}>{loading ? "Loading" : "Login"}</ButtonAuth>
+        </div>
         <p className='mt-8 text-center font-normal text-base'>Don't have an account yet? <Link to='/auth/register/registerworker' className='text-[#FBB017] no-underline'>Register here</Link></p>
         
     </div>

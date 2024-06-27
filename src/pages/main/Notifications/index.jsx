@@ -20,7 +20,7 @@ const Notifications = () => {
     }
   return (
     <div className='w-full h-auto flex justify-center bg-[#F6F7F8]'>        
-        <div className='w-[1140px] h-auto flex flex-col items-center gap-1 mt-28 mb-52 relative rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:w-full'>
+        <div className='w-[1140px] h-auto flex flex-col items-center gap-1 mt-28 mb-52 relative rounded-md max-laptop:w-full max-laptop:px-5 max-laptop:box-border'>
             {formHire.map((recruiter, index) => {
                 return (
                     <NotificationItem key={index} name={recruiter.recruiter_name} company={recruiter.recruiter_company} photo={recruiter.recruiter_photo} purpose={recruiter.message_purpose} description={recruiter.desciption_request_hire} />
@@ -36,14 +36,14 @@ export default Notifications
 const NotificationItem = ({name, company, photo, purpose, description}) => {
     return (
     <div className='w-full h-auto bg-white flex items-center mb-[2px] rounded-md py-5'>
-        <div className='w-[100px] h-[100px] ml-8 mr-8 phone:max-tablet:w-[40px] phone:max-tablet:h-[40px]'>
+        <div className='w-[100px] h-[100px] ml-8 mr-8 max-laptop:w-[40px] max-laptop:h-[40px]'>
             {photo === null ? (<img src="/src/assets/Main/icon_user_whiteongrey.svg" alt="photo" className='object-cover w-full h-full rounded-full' />) : (<img src={photo} alt="photo" className='object-cover w-full h-full rounded-full' />)}
         </div>
-        <div className='flex flex-col w-[400px] h-auto phone:max-tablet:w-max-[40%] phone:max-tablet:w-[40%]'>
-            <p className='text-[22px] text-[#1F2A36] font-[600] my-1 phone:max-tablet:text-[16px]'>{name}</p>
-            <p className='text-[14px] text-[#9EA0A5] my-1 phone:max-tablet:text-[10px]'>{company}</p>
-            <p className='text-[14px] text-[#9EA0A5] phone:max-tablet:text-[8px]'>{purpose}</p>
-            <p className='text-[14px] text-[#9EA0A5] phone:max-tablet:text-[8px] whitespace-pre-wrap'>{description}</p>
+        <div className='flex flex-col w-[400px] h-auto max-laptop:w-max-[40%] max-laptop:w-[40%]'>
+            <p className='text-[22px] text-[#1F2A36] font-[600] my-1 phone:max-laptop:text-[16px]'>{name}</p>
+            <p className='text-[14px] text-[#9EA0A5] my-1 phone:max-laptop:text-[10px]'>{company}</p>
+            <p className='text-[14px] text-[#9EA0A5] phone:max-laptop:text-[8px]'>{purpose}</p>
+            <p className='text-[14px] text-[#9EA0A5] phone:max-laptop:text-[8px] whitespace-pre-wrap'>{description}</p>
             
         </div>
     </div>

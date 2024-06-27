@@ -14,7 +14,7 @@ const WorkerPortofolio = () => {
         dispatch(getPortfolioPerIdWorkerAction(id))
     }, [])
     return (
-        <div className='w-[693px] h-auto flex justify-start flex-wrap gap-3 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
+        <div className='w-[693px] h-auto flex justify-start flex-wrap gap-3 max-laptop:py-2 max-laptop:gap-5 max-laptop:w-[90%] max-laptop:justify-center'>
             {loading === true ? (
                     <div className='w-full h-full flex justify-center items-center'>
                         <ClipLoader />

@@ -22,19 +22,19 @@ const ProfileWorker = () => {
   }
 
   return (
-    <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
-      <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
+    <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] max-laptop:w-[100%]'>
+      <div className='w-full h-[400px] bg-[#5E50A1] absolute max-laptop:w-[100%]'></div>
       {loading === true || loadingSkill === true ? (
         <div className='w-full h-[900px] flex justify-center items-center'>
             <ClipLoader />
         </div>
       ) : (
-        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:flex-col phone:max-tablet:items-center'>
-          <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px]'>
+        <div className='w-[1140px] h-auto mx-auto flex laptop:justify-between mt-[100px] mb-[400px] max-laptop:mb-[200px] relative max-laptop:w-[90%] phone:max-laptop:flex-col max-laptop:items-center'>
+          <div className='laptop:w-[357px] max-laptop:w-[90%] h-auto rounded-md'>
               <CardProfileWorker workersDetail={workersDetail} workersSkill={workersSkill} handleClickHire={handleClickHire} />
           </div>
-          <div className='w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:mt-5'>
-            <div className='w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px] phone:max-tablet:px-5'>
+          <div className='laptop:w-[753px] h-auto flex flex-col items-center mx-auto rounded-md max-laptop:w-[100%] phone:max-laptop:mt-5'>
+            <div className='w-full h-auto min-h-[516px] flex flex-col items-center rounded-md bg-white max-laptop:px-5 max-laptop:box-border'>
               <nav className='w-full h-auto relative mt-10 mb-5'>
                 <ul className='list-none flex justify-start items-center gap-5 relative'>
                   <li><NavLink to={`/main/profileworker/${id}/portofolio`} className='no-underline text-[22px] font-semibold text-[#1F2A36] pb-2'>Portofolio</NavLink></li>

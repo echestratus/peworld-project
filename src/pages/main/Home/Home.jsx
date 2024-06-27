@@ -49,21 +49,21 @@ const Home = () => {
   return (
     <div className='w-full h-auto bg-[#F6F7F8] flex flex-col justify-center items-center'>
       <div className='w-full h-auto bg-[#5E50A1] flex justify-center'>
-        <div className='container w-[1140px] h-auto flex justify-start phone:max-tablet:max-w-[640px] phone:max-tablet:w-[80%]'>
-          <h2 className='text-white text-[28px] font-bold py-2 phone:max-tablet:text-left'>Top Jobs</h2>
+        <div className='container w-[1140px] h-auto flex justify-start phone:max-laptop:max-w-[640px] phone:max-laptop:w-[80%]'>
+          <h2 className='text-white text-[28px] font-bold py-2 phone:max-laptop:text-left'>Top Jobs</h2>
         </div>
       </div>
-      <div className='w-[1140px] h-auto my-28 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[80%]'>
+      <div className='w-[1140px] h-auto my-28 phone:max-laptop:max-w-[640px] phone:max-laptop:w-[80%]'>
         <Searchbar value={search} handleChange={handleSearchChange} onClick={handleSearchClick} handleSortChange={handleSortChange} handleSortByChange={handleSortByChange} />
       </div>
-      <div className='w-[1140px] h-auto mb-28 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[80%]'>
+      <div className='w-[1140px] h-auto mb-28 max-laptop:max-w-[400px] max-laptop:w-[80%]'>
           {loading===true ? (
                   <div className='flex justify-center items-center'>
                   <ClipLoader />
                 </div>
           ) : workersData.map((value, index)=>(<CardHome key={index} workersData={value} />))  }
       </div>
-      <div className='w-[1140px] h-auto mb-20 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[90%]'>
+      <div className='w-[1140px] h-auto mb-20 phone:max-laptop:max-w-[640px] phone:max-laptop:w-[90%]'>
         {/* {loading===false && (<PaginationButtons pageCount={paginationData.totalPage} />)} */}
         {isSearching ? (
           <PaginationButtons pageCount={paginationData.totalPage} currentPage={currentPage} setCurrentPage={setCurrentPageSearch} />

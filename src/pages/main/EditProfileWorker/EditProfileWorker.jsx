@@ -125,41 +125,41 @@ const EditProfileWorker = () => {
   }
 
   return (
-    <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] phone:max-tablet:max-w-[640px]'>
-      <div className='w-full h-[400px] bg-[#5E50A1] absolute phone:max-tablet:max-w-[640px]'></div>
+    <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8] max-laptop:w-[100%]'>
+      <div className='w-full h-[400px] bg-[#5E50A1] absolute max-laptop:w-[100%]'></div>
       {loading === true || loadingGetSkills === true || loadingGetPortfolio === true || loadingGetExperience === true ? (
             <div className='w-full h-[900px] flex justify-center items-center'>
                 <ClipLoader />
             </div>
       ) : (
-        <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px] phone:max-tablet:w-full phone:max-tablet:flex-col phone:max-tablet:items-center'>
-          <div className='container w-[357px] h-auto rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px]'>
+        <div className='w-[1140px] h-auto mx-auto flex laptop:justify-between mt-[100px] mb-[400px] max-laptop:mb-[200px] relative max-laptop:w-[90%] phone:max-laptop:flex-col max-laptop:items-center'>
+          <div className='laptop:w-[357px] max-laptop:w-[90%] h-auto rounded-md max-laptop:flex max-laptop:justify-center'>
             <CardEditProfileWorker workersDetail={myDetail} workersSkill={mySkill} handleSubmitProfile={handleSubmitProfile} handleClickCancel={handleClickCancel} handleChangeUploadImage={handleChangeUploadImage} />
           </div>
-          <div className='container w-[753px] h-auto flex flex-col items-center rounded-md phone:max-tablet:max-w-[640px] phone:max-tablet:min-w-[320px]'>
-            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px]'>
-              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] phone:max-tablet:w-[320px] phone:max-tablet:flex phone:max-tablet:justify-start'>
-                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7 phone:max-tablet:ml-0'>Personal information</p>
+          <div className='laptop:w-[753px] h-auto flex flex-col items-center mx-auto rounded-md max-laptop:w-[100%] phone:max-laptop:mt-5'>
+            <div className='w-full h-auto mb-10 min-h-[516px] flex flex-col items-center rounded-md bg-white'>
+              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] max-laptop:px-5 max-laptop:box-border max-laptop:w-[100%] phone:max-laptop:flex phone:max-laptop:justify-start'>
+                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7 phone:max-laptop:ml-0'>Personal information</p>
               </nav>
-              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:items-start'>
+              <div className='w-[693px] h-auto flex flex-col gap-10 mb-16 max-laptop:w-[90%] max-laptop:items-start'>
                 <Input type='text' name='name' label="Full name" value={formProfile?.name} onChange={handleChangeProfile} placeholder="Input full name" />
                 <Input type='text' name='job_desk' label="Job desk" value={formProfile?.job_desk} onChange={handleChangeProfile} placeholder="Input job desk" />
                 <Input type='text' name='domicile' label="Domicile" value={formProfile?.domicile} onChange={handleChangeProfile} placeholder="Input domicile" />
                 <Input type='text' name='workplace' label="Workplace" value={formProfile?.workplace} onChange={handleChangeProfile} placeholder="Input workplace" />
-                <div className='w-[693px] h-[144px] phone:max-tablet:w-[320px]'>
+                <div className='w-[693px] h-[144px] max-laptop:w-[100%]'>
                   <TextArea type='text' name='description' label="Brief Description" value={formProfile?.description} onChange={handleChangeProfile} placeholder="Input brief description" />
                 </div>
               </div>
             </div>
 
-            <div className='w-full h-auto mb-10 flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px]'>
-              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] phone:max-tablet:w-[320px] phone:max-tablet:flex phone:max-tablet:justify-start'>
-                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7 phone:max-tablet:ml-0'>Skill</p>
+            <div className='w-full h-auto mb-10 flex flex-col items-center rounded-md bg-white max-laptop:w-[100%]'>
+              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] max-laptop:w-[100%] max-laptop:flex max-laptop:justify-start'>
+                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Skill</p>
               </nav>
-              <div className='container w-[693px] h-auto flex flex-col items-center phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:items-start'>
-                <div className='container w-full h-auto flex justify-between items-center gap-5 mb-10'>
-                  <div className='w-[583px] h-[50px]'><Input type='text' name='skill_name' value={formProfile.skill_name} onChange={handleChangeProfile} placeholder="Java" /></div>
-                  <div className='w-[80px] h-[50px]'><ButtonAuth onClick={handleSubmitSkill}>Simpan</ButtonAuth></div>
+              <div className='w-[693px] h-auto flex flex-col items-center max-laptop:w-[90%] max-laptop:items-start'>
+                <div className='w-full h-auto flex justify-between items-center gap-5 mb-10'>
+                  <div className='w-[583px] max-laptop:w-[75%] h-[50px]'><Input type='text' name='skill_name' value={formProfile.skill_name} onChange={handleChangeProfile} placeholder="Java" /></div>
+                  <div className='w-[80px] max-laptop:w-[20%] h-[50px] max-laptop:flex max-laptop:items-center'><ButtonAuth onClick={handleSubmitSkill}>Simpan</ButtonAuth></div>
                 </div>
                 <div className='w-full h-auto flex flex-wrap gap-2 justify-start mb-10'>
                   {mySkill.map((value, index) => (
@@ -172,21 +172,21 @@ const EditProfileWorker = () => {
               </div>
             </div>
 
-            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px]'>
-              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] phone:max-tablet:w-[320px] phone:max-tablet:flex phone:max-tablet:justify-start'>
-                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7 phone:max-tablet:ml-0'>Work Experience</p>
+            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white max-laptop:w-[100%]'>
+              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] max-laptop:w-[100%] phone:max-laptop:flex phone:max-laptop:justify-start'>
+                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Work Experience</p>
               </nav>
-              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:items-start'>
+              <div className='w-[693px] h-auto flex flex-col gap-10 mb-16 max-laptop:w-[90%] phone:max-laptop:items-start'>
                 <Input type='text' name='position' label="Position" value={formProfile.position} onChange={handleChangeProfile} placeholder="web developer" />
                 <div className='w-full h-auto flex justify-between items-center'>
-                  <div className='w-[336px] h-auto phone:max-tablet:w-[150px]'>
+                  <div className='w-[336px] h-auto max-laptop:w-[45%]'>
                     <Input type='text' name='company' label="Company" value={formProfile.company} onChange={handleChangeProfile} placeholder="PT. Elminster" />
                   </div>
-                  <div className='w-[337px] h-auto phone:max-tablet:w-[150px]'>
+                  <div className='w-[337px] h-auto max-laptop:w-[45%]'>
                     <Input type='text' name='workMonthYear' label="Month/Year" value={workMonthYear} onChange={handleChangeWorkMonthYear} placeholder="January 2024" />
                   </div>
                 </div>
-                <div className='w-[693px] h-[144px] phone:max-tablet:w-[320px]'>
+                <div className='w-[693px] h-[144px] max-laptop:w-[100%]'>
                   <TextArea type='text' name='work_description' label="Brief Description" value={formProfile.work_description} onChange={handleChangeProfile} placeholder="Input brief description" />
                 </div>
                 <div className='border-b border-x-0 border-t-0 border-solid border-[#E2E5ED] w-full my-7'></div>
@@ -194,27 +194,27 @@ const EditProfileWorker = () => {
               </div>
             </div>
 
-            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white phone:max-tablet:max-w-[640px]'>
-              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] phone:max-tablet:w-[320px] phone:max-tablet:flex phone:max-tablet:justify-start'>
-                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7 phone:max-tablet:ml-0'>Portofolio</p>
+            <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center rounded-md bg-white max-laptop:w-[100%]'>
+              <nav className='w-full h-auto relative mt-2 mb-5 border-b border-x-0 border-t-0 border-solid border-[#C4C4C4] max-laptop:w-[100%] phone:max-laptop:flex phone:max-laptop:justify-start'>
+                <p className='text-[22px] font-semibold text-[#1F2A36] ml-7'>Portofolio</p>
               </nav>
-              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16 phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px] phone:max-tablet:items-start'>
+              <div className='container w-[693px] h-auto flex flex-col gap-10 mb-16 max-laptop:w-[90%] phone:max-laptop:items-start'>
                 <Input type='text' name='application_name' label="Application name" value={portofolio.application_name} onChange={handleChangePortofolio} placeholder="Input application name" />
                 <Input type='text' name='link_repository' label="Link repository" value={portofolio.link_repository} onChange={handleChangePortofolio} placeholder="Input link repository" />
                 <div className='w-full h-auto flex flex-col items-start'>
                   <label className='mb-5 font-normal text-xs text-[#9EA0A5]'>Portofolio type</label>
                   <div className='w-full h-auto flex justify-start gap-5'>
-                    <label><input type="radio" name='application' value='Aplikasi Mobile' onChange={handleChangePortofolio} /><span className='ml-3 font-semibold text-[14px] text-[#46505C]'>Mobile application</span></label>
-                    <label><input type="radio" name="application" value='Aplikasi Web' onChange={handleChangePortofolio} /><span className='ml-3 font-semibold text-[14px] text-[#46505C]'>Web application</span></label>
+                    <label className='max-laptop:flex max-laptop:items-center'><input type="radio" name='application' value='Aplikasi Mobile' onChange={handleChangePortofolio} /><span className='ml-3 font-semibold text-[14px] text-[#46505C]'>Mobile application</span></label>
+                    <label className='max-laptop:flex max-laptop:items-center'><input type="radio" name="application" value='Aplikasi Web' onChange={handleChangePortofolio} /><span className='ml-3 font-semibold text-[14px] text-[#46505C]'>Web application</span></label>
                   </div>
                 </div>
                 <div className='w-full h-[auto]'>
                   <label className='mb-5 font-normal text-xs text-[#9EA0A5]'>Upload image</label>
-                  <label className='w-[693px] h-[348px] phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]'>
+                  <label className='w-[693px] h-[348px] max-laptop:w-[90%] max-laptop:min-h-[150px]'>
                     {portofolio.image ? (
-                      <img src={portofolio.image} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer object-cover phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]' />
+                      <img src={portofolio.image} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer object-cover max-laptop:w-[100%] max-laptop:h-fit' />
                     ) : (
-                      <img src={UploadIcon} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer phone:max-tablet:w-[320px] phone:max-tablet:h-[150px]' />
+                      <img src={UploadIcon} alt="upload-img" className='w-[693px] h-[348px] hover:cursor-pointer max-laptop:w-[100%] max-laptop:h-fit' />
                     )}
                     <input type='file' accept='image/*' className='hidden' onChange={handleChangeUploadImagePortofolio} />
                   </label>

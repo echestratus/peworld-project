@@ -146,12 +146,12 @@ const RootLandingPage = () => {
         
         <div className='
         laptop:mx-auto laptop:w-[1140px] laptop:flex laptop:my-24
-        max-tablet:mx-auto max-tablet:max-w-[640px] max-tablet:w-[90%] max-tablet:flex max-tablet:flex-col max-tablet:gap-10 max-tablet:my-24
+        max-laptop:mx-auto max-laptop:max-w-[640px] max-laptop:w-[90%] max-laptop:flex max-laptop:flex-col max-laptop:gap-10 max-laptop:my-24
         '>
             {/* Start Now section */}
             <div className='
             laptop:w-[45%] laptop:flex laptop:flex-col laptop:justify-center
-            max-tablet:w-[100%] max-tablet:flex max-tablet:flex-col max-tablet:justify-center
+            max-laptop:w-[100%] max-laptop:flex max-laptop:flex-col max-laptop:justify-center
             '>
                 <p className='font-semibold text-[44px] text-[#1F2A36] leading-[70px] mb-3'>The best nation's talent for revolution 4.0 change</p>
                 <p className='font-normal text-[18px] text-[#46505C] leading-[28px]'>We are the best broker IT talent in this country, so what are you waiting for. Join us now.</p>
@@ -164,11 +164,11 @@ const RootLandingPage = () => {
             {/* Image Section */}
             <div className='
             laptop:w-[55%] laptop:flex laptop:justify-end
-            max-tablet:w-[100%] max-tablet:flex max-tablet:justify-center
+            max-laptop:w-[100%] max-laptop:flex max-laptop:justify-center
             '>
                 <img src={ImgPc} alt="img-pc" className='
                 laptop:w-[617.17px] laptop:h-[617.17px]
-                max-tablet:w-[100%] max-tablet:h-fit
+                max-laptop:w-[100%] max-laptop:h-fit
                 ' />
             </div>
             {/* Image Section */}
@@ -176,16 +176,16 @@ const RootLandingPage = () => {
 
         <div className='
         laptop:mx-auto laptop:w-[1140px] laptop:flex laptop:my-24
-        max-tablet:mx-auto max-tablet:w-[90%] max-tablet:flex max-tablet:flex-col-reverse max-tablet:gap-10 max-tablet:my-24
+        max-laptop:mx-auto max-laptop:w-[90%] max-laptop:flex max-laptop:flex-col-reverse max-laptop:gap-10 max-laptop:my-24
         '>
             {/* Image section */}
             <div className='
             laptop:w-[55%] laptop:flex laptop:justify-start
-            max-tablet:w-[100%] max-tablet:flex max-tablet:justify-center
+            max-laptop:w-[100%] max-laptop:flex max-laptop:justify-center
             '>
                 <img src={ImgLaptop} alt="img-laptop" className='
                 laptop:w-[568.98px] laptop:h-[488.59px]
-                max-tablet:w-[100%] max-tablet:h-fit
+                max-laptop:w-[100%] max-laptop:h-fit
                 ' />
             </div>
             {/* Image section */}
@@ -193,7 +193,7 @@ const RootLandingPage = () => {
             {/* Benefit of using peworld section */}
             <div className='
             laptop:w-[45%] laptop:flex laptop:flex-col laptop:justify-start
-            max-tablet:w-[100%] max-tablet:flex max-tablet:flex-col max-tablet:justify-start
+            max-laptop:w-[100%] max-laptop:flex max-laptop:flex-col max-laptop:justify-start
             '>
                 <p className='font-semibold text-[36px] text-[#1F2A36] leading-[56px] mb-3'>The best nation's talent for revolution 4.0 change</p>
                 <ul className={`list-image-checkblue list-outside leading-[50px]`}>
@@ -209,22 +209,22 @@ const RootLandingPage = () => {
 
         <div className='
         laptop:mx-auto laptop:w-[1140px] laptop:flex laptop:my-24
-        max-tablet:mx-auto max-tablet:w-[90%] max-tablet:flex max-tablet:flex-col max-tablet:gap-10 max-tablet:my-24
+        max-laptop:mx-auto max-laptop:w-[90%] max-laptop:flex max-laptop:flex-col max-laptop:gap-10 max-laptop:my-24
         '>
             {/* Talent's Skill */}
             <div className='
             laptop:w-[50%] laptop:flex laptop:items-center laptop:justify-end
-            max-tablet:w-[100%] max-tablet:flex max-tablet:items-center max-tablet:justify-start
+            max-laptop:w-[100%] max-laptop:flex max-laptop:items-center max-laptop:justify-start
             '>
                 <div className='
                 laptop:w-[85%]
-                max-tablet:w-[100%]
+                max-laptop:w-[100%]
                 '>
                     <p className='font-semibold text-[36px] text-[#1F2A36] leading-[56px] mb-1'>Skill Talent</p>
                     <p className='font-normal text-[18px] text-[#46505C] leading-[28px]'>Skills that is needed in the 21th century industry, we provide skills that match to your liking.</p>
                     <div className='
                     laptop:flex laptop:gap-20
-                    max-tablet:flex max-tablet:gap-2
+                    max-laptop:flex max-laptop:gap-2
                     '>
                         <ul className={`list-image-checkgreen list-outside leading-[50px]`}>
                             <li className='font-normal text-[16px] text-[#46505C] pl-5'>Java</li>
@@ -247,11 +247,11 @@ const RootLandingPage = () => {
             {/* Image Section */}
             <div className='
             laptop:w-fit laptop:ml-auto laptop:flex laptop:justify-end
-            max-tablet:w-[100%] max-tablet:h-fit max-tablet:flex max-tablet:justify-center
+            max-laptop:w-[100%] max-laptop:h-fit max-laptop:flex max-laptop:justify-center
             '>
                 <img src={ImgDesktop} alt="img-pc" className='
                 laptop:w-[570.62px] laptop:h-[490.99px]
-                max-tablet:w-[100%] max-tablet:h-fit
+                max-laptop:w-[100%] max-laptop:h-fit
                 ' />
             </div>
             {/* Image Section */}
@@ -260,15 +260,15 @@ const RootLandingPage = () => {
         {/* Card Opinion */}
         <div className='
         laptop:w-full laptop:h-[700px] laptop:bg-[#FAFBFC] laptop:mx-auto laptop:my-24 laptop:py-12 laptop:box-border
-        max-tablet:w-full max-tablet:h-[700px] max-tablet:bg-[#FAFBFC] max-tablet:mx-auto max-tablet:my-24 max-tablet:py-12 max-tablet:box-border
+        max-laptop:w-full max-laptop:h-[700px] max-laptop:bg-[#FAFBFC] max-laptop:mx-auto max-laptop:my-24 max-laptop:py-12 max-laptop:box-border
         '>
             <p className='
             laptop:font-semibold laptop:text-[36px] laptop:text-[#1F2A36] laptop:text-center
-            max-tablet:font-semibold max-tablet:text-[24px] max-tablet:text-[#1F2A36] max-tablet:text-center
+            max-laptop:font-semibold max-laptop:text-[24px] max-laptop:text-[#1F2A36] max-laptop:text-center
             '>Their opinion about peworld</p>
             <div className='
             laptop:container laptop:w-[100%] laptop:max-w-[1140px] laptop:m-auto
-            max-tablet:container max-tablet:w-[80%] max-tablet:max-w-screen-tablet max-tablet:m-auto
+            max-laptop:container max-laptop:w-[80%] max-laptop:max-w-screen-tablet max-laptop:m-auto
             '>
                 <div className='mt-12'>
                     <Slider {...settings} className='cursor-grab'>
@@ -283,11 +283,11 @@ const RootLandingPage = () => {
 
         <div className='
         laptop:relative laptop:mx-auto laptop:w-[1140px] laptop:min-h-[227px] laptop:flex my-24 laptop:bg-peworld-blue laptop:rounded-tl-[40px] laptop:rounded-tr-[8px] laptop:rounded-br-[40px] laptop:rounded-bl-[8px]
-        max-tablet:relative max-tablet:mx-auto max-tablet:w-[90%] max-tablet:min-h-[227px] max-tablet:flex max-tablet:bg-peworld-blue max-tablet:rounded-tl-[40px] max-tablet:rounded-tr-[8px] max-tablet:rounded-br-[40px] max-tablet:rounded-bl-[8px]'>
-            <img src={WaveImage} alt="wave-image" className='absolute top-[-60px] max-tablet:hidden' />
+        max-laptop:relative max-laptop:mx-auto max-laptop:w-[90%] max-laptop:min-h-[227px] max-laptop:flex max-laptop:bg-peworld-blue max-laptop:rounded-tl-[40px] max-laptop:rounded-tr-[8px] max-laptop:rounded-br-[40px] max-laptop:rounded-bl-[8px]'>
+            <img src={WaveImage} alt="wave-image" className='absolute top-[-60px] max-laptop:hidden' />
             <div className='w-full h-full flex justify-between items-center px-12 relative'>
-                <p className='w-[293px] max-tablet:w-[40%] h-[112px] max-tablet:h-fit font-medium text-[36px] max-tablet:text-[24px] leading-[50px] max-tablet:leading-7 text-white'>Join us now talents and recruiters</p>
-                <button className='w-[210px] h-[63.11px] max-tablet:w-[40%] max-tablet:py-5 max-tablet:h-fit bg-white font-bold text-[16px] max-tablet:text-[12px] text-peworld-blue rounded-sm border-none hover:cursor-pointer hover:bg-slate-300'>Start Now</button>
+                <p className='w-[293px] max-laptop:w-[40%] h-[112px] max-laptop:h-fit font-medium text-[36px] max-laptop:text-[24px] leading-[50px] max-laptop:leading-7 text-white'>Join us now talents and recruiters</p>
+                <button className='w-[210px] h-[63.11px] max-laptop:w-[40%] max-laptop:py-5 max-laptop:h-fit bg-white font-bold text-[16px] max-laptop:text-[12px] text-peworld-blue rounded-sm border-none hover:cursor-pointer hover:bg-slate-300'>Start Now</button>
             </div>
         </div>
 

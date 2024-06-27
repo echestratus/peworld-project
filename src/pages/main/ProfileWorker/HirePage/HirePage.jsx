@@ -41,17 +41,17 @@ const HirePage = () => {
         dispatch(addHireAction(formHire, setFormHire))
     }
     return (
-        <div className='w-full h-auto min-h-[1000px] relative bg-[#F6F7F8]'>
+        <div className='w-full h-auto min-h-screen relative bg-[#F6F7F8]'>
             {loading === true || loadingSkill === true ? (
                     <div className='w-full h-screen flex justify-center items-center'>
                         <ClipLoader />
                     </div>
             ) : (
-                <div className='w-[1140px] h-auto mx-auto flex justify-between mt-[100px] mb-[400px] relative'>
-                    <div className='container w-[357px] h-auto rounded-md'>
+                <div className='w-[1140px] max-laptop:w-[90%] h-auto mx-auto flex max-laptop:flex-col laptop:justify-between max-laptop:items-center mt-[100px] mb-[400px] max-laptop:mb-[150px] relative'>
+                    <div className='container w-[357px] max-laptop:w-[100%] max-laptop:mx-auto h-auto rounded-md'>
                         <CardHire workersDetail={workersDetail} workersSkill={workersSkill} />
                     </div>
-                    <div className='container w-[753px] h-auto flex flex-col items-center'>
+                    <div className='container w-[753px] max-laptop:w-[90%] h-auto flex flex-col items-center'>
                         <div className='w-full h-auto min-h-[516px] mb-10 flex flex-col items-center'>
                             <nav className='w-full h-auto relative mb-5'>
                                 <p className='text-[32px] font-semibold text-[#1F2A36] ml-7'>Contact {workersDetail.name}</p>
@@ -62,10 +62,12 @@ const HirePage = () => {
                                 <Input type='text' name='name' label="Name" value={formHire.name} onChange={handleChangeHire} placeholder="Input complete name" />
                                 <Input type='email' name='email' label="Email" value={formHire.email} onChange={handleChangeHire} placeholder="Input email" />
                                 <Input type='text' name='phone' label="Phone number" value={formHire.phone} onChange={handleChangeHire} placeholder="Input phone number" />
-                                <div className='w-[693px] h-[144px] mb-10'>
+                                <div className='w-[693px] max-laptop:w-[100%] h-[144px] mb-10'>
                                     <TextArea type='text' name='description' label="Description" value={formHire.description} onChange={handleChangeHire} placeholder="Input description/Explain more detail" />
                                 </div>
-                                <ButtonAuth onClick={handleSubmitHire}>Hire</ButtonAuth>
+                                <div className='w-full h-[50px]'>
+                                    <ButtonAuth onClick={handleSubmitHire}>Hire</ButtonAuth>
+                                </div>
                             </div>
                         </div>
 

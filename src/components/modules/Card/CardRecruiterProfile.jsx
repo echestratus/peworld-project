@@ -10,17 +10,17 @@ import EditLogoWhite from '../../../assets/Main/edit-logo-white.svg'
 
 const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) => {
     return (
-        <div className='w-[1140px] h-auto flex flex-col items-center mt-28 mb-52 relative rounded-md bg-white phone:max-tablet:max-w-[640px] phone:max-tablet:w-full'>
-            <div className='absolute w-full h-[200px] bg-[#5E50A1] rounded-t-md phone:max-tablet:max-w-[640px]'>
-                <label className='flex items-center justify-start gap-4 relative left-[85%] top-[75%] hover:cursor-pointer phone:max-tablet:gap-1 phone:max-tablet:left-[80%]'>
-                    <img src={EditLogoWhite} alt="edit-logo" className='w-[16px] h-[16px] phone:max-tablet:w-[8px] phone:max-tablet:h-[8px]' />
-                    <p className='text-[22px] text-white font-normal phone:max-tablet:text-[11px]'>Ubah Latar</p>
+        <div className='w-[1140px] h-auto flex flex-col items-center mt-28 mb-52 relative rounded-md bg-white max-laptop:max-w-[640px] max-laptop:w-full'>
+            <div className='absolute w-full h-[200px] bg-[#5E50A1] rounded-t-md max-laptop:max-w-[640px]'>
+                <label className='flex items-center justify-start gap-4 absolute left-[85%] top-[75%] hover:cursor-pointer max-laptop:gap-1 max-laptop:left-[88%] max-laptop:top-[82%]'>
+                    <img src={EditLogoWhite} alt="edit-logo" className='w-[16px] h-[16px] max-laptop:w-[8px] max-laptop:h-[8px]' />
+                    <p className='text-[22px] text-white font-normal max-laptop:text-[11px]'>Ubah Latar</p>
                 </label>
             </div>
             {recruiterData.photo ? (
-                <img src={recruiterData.photo} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] relative rounded-full' />
+                <img src={recruiterData.photo} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] object-cover relative rounded-full' />
             ) : (
-                <img src={IconUser} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] relative rounded-full' />
+                <img src={IconUser} alt='user-photo' className='w-[150px] h-[150px] mt-[125px] object-cover relative rounded-full' />
             )}
             <div className='relative w-full h-auto bg-white rounded-b-md flex flex-col items-center pb-36'>
                 <p className='text-[22px] text-[#1F2A36] font-semibold'>{recruiterData.company}</p>
@@ -30,7 +30,7 @@ const CardRecruiterProfile = ({ recruiterData, handleClickEditProfileCompany }) 
                     <p className='text-[14px] text-[#9EA0A5] font-normal'>{recruiterData.city}</p>
                 </label>
                 <p className='text-[14px] text-[#9EA0A5] font-normal text-center'>{recruiterData.description}</p>
-                <div className='w-[297px] h-auto'>
+                <div className='w-[297px] h-auto max-laptop:h-[50px]'>
                     <ButtonMain onClick={handleClickEditProfileCompany}>Edit Profile</ButtonMain>
                 </div>
                 <div className='flex flex-col items-start gap-3 mt-10'>

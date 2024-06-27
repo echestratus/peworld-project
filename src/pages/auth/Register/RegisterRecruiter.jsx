@@ -29,7 +29,7 @@ const RegisterRecruiter = () => {
     dispatch(registerRecruiterAction(form, navigate))
   }
   return (
-    <div className='w-[570px] h-auto flex flex-col justify-center phone:max-tablet:max-w-[640px] phone:max-tablet:w-[320px]'>
+    <div className='w-[570px] h-auto flex flex-col justify-center max-laptop:w-[90%] max-laptop:max-w-[768px]'>
       <h2 className='font-semibold text-[32px] text-[#1F2A36] mb-5'>Hello, Pewpeople</h2>
       <p className='mb-10 font-normal text-lg text-[#46505C]'>Discover top-tier IT talent effortlessly on our website and elevate your projects to new heights!</p>
       <div className='w-full h-auto flex flex-col gap-8 mb-16'>
@@ -41,7 +41,9 @@ const RegisterRecruiter = () => {
         <Input type='password' name='password' placeholder='Input password' label='Password' value={form.password} onChange={handleChange} />
         <Input type='password' name='confirmPass' placeholder='Input password confirmation' label='Confirm password' value={form.confirmPass} onChange={handleChange} />
       </div>
-      <ButtonAuth onClick={handleSubmit}>{loading ? "Loading" : "Register"}</ButtonAuth>
+      <div className='w-full h-[50px]'>
+        <ButtonAuth onClick={handleSubmit}>{loading ? "Loading" : "Register"}</ButtonAuth>
+      </div>
       <p className='mt-10 text-center font-normal text-base'>Already have an account? <Link to='/auth/login' className='text-[#FBB017] no-underline'>Login here</Link></p>
 
     </div>
