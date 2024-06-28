@@ -191,7 +191,5 @@ Contributing project to github is pretty straight forward.
     - Select the base repository and branch you want to merge into.
     - Provide a detailed description of your changes and click "Create Pull Request".
 
-For more detailed information, visit our website or contact our support team.
-
 
 
