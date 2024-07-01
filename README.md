@@ -17,6 +17,7 @@
 - [Documentation](#documentation)
 - [Feature](#key-features)
 - [Related Project](#related-project)
+- [License](#license)
 - [Contact](#contact)
 - [Contribution](#contribution)
  
