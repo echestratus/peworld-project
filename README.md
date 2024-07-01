@@ -158,6 +158,10 @@ Peworld aims to streamline the connection between workers and recruiters, provid
 ## Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
 
+## License
+
+Distributed under the MIT License. See [`LICENSE`](https://github.com/echestratus/peworld-project/blob/main/LICENSE) for more information.
+
 ## Contact
 
 Feel free to contact me if there is any question you want to ask regarding this project or if you just want to get in touch.
