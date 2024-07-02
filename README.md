@@ -14,9 +14,11 @@
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Installation](#installation)
+- [Trial Account](#trial-account)
 - [Documentation](#documentation)
 - [Feature](#key-features)
 - [Related Project](#related-project)
+- [License](#license)
 - [Contact](#contact)
 - [Contribution](#contribution)
  
@@ -49,7 +51,7 @@ npm install
 VITE_BE_URL=[Backend API]
 ```
 
-6. Run this command to run the server locally
+4. Run this command to run the server locally
 
 ```sh
 npm run dev
@@ -60,6 +62,14 @@ npm run dev
 ```sh
 npm run lint
 ```
+
+## Trial Account
+### Worker Role
+Email: adam@gmail.com
+Password: Adam_01
+### Recruiter
+Email: morgan@gmail.com
+Password: Morgan_01
 
 ## Documentation
 
@@ -158,6 +168,10 @@ Peworld aims to streamline the connection between workers and recruiters, provid
 ## Related Project
 :rocket: [`Backend Peworld`](https://github.com/echestratus/be-peworld-project)
 
+## License
+
+Distributed under the MIT License. See [`LICENSE`](https://github.com/echestratus/peworld-project/blob/main/LICENSE) for more information.
+
 ## Contact
 
 Feel free to contact me if there is any question you want to ask regarding this project or if you just want to get in touch.
@@ -190,8 +204,6 @@ Contributing project to github is pretty straight forward.
     - Click on the "New Pull Request" button.
     - Select the base repository and branch you want to merge into.
     - Provide a detailed description of your changes and click "Create Pull Request".
-
-For more detailed information, visit our website or contact our support team.
 
 
 
