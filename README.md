@@ -14,6 +14,7 @@
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Installation](#installation)
+- [Trial Account](#trial-account)
 - [Documentation](#documentation)
 - [Feature](#key-features)
 - [Related Project](#related-project)
@@ -61,6 +62,14 @@ npm run dev
 ```sh
 npm run lint
 ```
+
+## Trial Account
+### Worker Role
+Email: adam@gmail.com
+Password: Adam_01
+### Recruiter
+Email: morgan@gmail.com
+Password: Morgan_01
 
 ## Documentation
 
